@@ -1,9 +1,9 @@
-title: Stack Problems
-description: My Personal Stack Problems
-# author: Agus Makmun
-# github: https://github.com/agusmakmun
-about: I am freelance developer. Currently doing more in backend, actually in Python and Django.
-disqus_shortname: stackproblems
+title: Coding Problems
+description: My Personal Coding Problems
+author: Chris Hsieh
+github: https://github.com/JumpingRock
+about: Hi I am a Software Dev I like Java
+disqus_shortname: JumpingCode
 google_analytics: UA-XXXXXXXX-Y
 
 enableTags: true
