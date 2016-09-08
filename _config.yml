@@ -1,7 +1,8 @@
-title: Coding Problems
+title: Personal Blog of My Coding Adventures!
 description: My Personal Coding Problems
 author: Chris Hsieh
-github: https://github.com/JumpingRock
+github-site: https://github.com/JumpingRock/JumpingRock.io
+github: https://github.com/JumpingRock/
 about: Hi I am a Software Dev I like Java
 disqus_shortname: JumpingCode
 google_analytics: UA-XXXXXXXX-Y
@@ -17,8 +18,6 @@ collections:
 social:
     - icon: fa-facebook
       link: "#"
-    - icon: fa-skype
-      link: "#"
     - icon: fa-twitter
       link: "https://twitter.com/place here"
     - icon: fa-linkedin
@@ -31,13 +30,13 @@ share:
   fb_appid: 32423432432
 
 urls:
-    - text: About Me
+    - text: About Me --Under Construction--
       url: /about/
-    - text: Projects
+    - text: Projects --Under Construction--
       url: /projects/
-    - text: Github
-      url: https://github.com/agusmakmun
-    - text: XML Feed
+    - text: Github --Just Links you to my GitHub, will replace with an icon--
+      url: https://github.com/JumpingRock
+    - text: XML Feed --Under Construction--
       url: /feed.xml
 
 url: "http://christopherhsieh.com"
