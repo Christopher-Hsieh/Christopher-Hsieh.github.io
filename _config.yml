@@ -1,9 +1,9 @@
-title: Personal Blog of My Coding Adventures!
-description: My Personal Coding Problems
+title: Personal Blog & Site About Things I Code
+description: description
 author: Chris Hsieh
 github-site: https://github.com/JumpingRock/JumpingRock.io
 github: https://github.com/JumpingRock/
-about: Hi I am a Software Dev I like Java
+about: Hi I am a Software Dev I like Java. My alternative alias is JumpingRock.
 disqus_shortname: JumpingCode
 google_analytics: UA-XXXXXXXX-Y
 
@@ -16,28 +16,30 @@ collections:
     permalink: /project/:path/
 
 social:
-    - icon: fa-facebook
-      link: "#"
-    - icon: fa-twitter
-      link: "https://twitter.com/place here"
+    # - icon: fa-facebook
+    #   link: "#"
+    # - icon: fa-twitter
+    #   link: "https://twitter.com/place here"
     - icon: fa-linkedin
       link: "#"
     - icon: fa-stack-exchange
       link: "#"
+    - icon: fa-github
+      link: "https://github.com/JumpingRock"
 
 share:
   twitter_username: twittername
   fb_appid: 32423432432
 
 urls:
-    - text: About Me --Under Construction--
+    - text: About Me 
       url: /about/
-    - text: Projects --Under Construction--
+    - text: Projects (Nothing yet... Stay Tuned!)
       url: /projects/
-    - text: Github --Just Links you to my GitHub, will replace with an icon--
-      url: https://github.com/JumpingRock
-    - text: XML Feed --Under Construction--
+    - text: XML Feed 
       url: /feed.xml
+    - text: My Github 
+      url: https://github.com/JumpingRock
 
 url: "http://christopherhsieh.com"
 baseurl: ""
