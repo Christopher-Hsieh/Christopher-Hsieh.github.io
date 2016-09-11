@@ -6,5 +6,14 @@
 		"url": "https://www.google.com",
 		"date": "Jan 2014",
 		"tags": ["category/tag-1","category/tag-2"]
+	},
+
+	{
+		"slug": "Google-Charts",
+		"name": "Cool project 2",
+		"image": "1.jpg",
+		"url": "https://www.google.com",
+		"date": "Jan 2014",
+		"tags": ["category/tag-1","category/tag-2"]
 	}
 ]
