@@ -1,0 +1,35 @@
+{
+  "name": "spa-github-pages",
+  "version": "2.0.0",
+  "description": "Single Page Apps for GitHub Pages",
+  "scripts": {
+    "start": "webpack -d --watch & live-server --entry-file=404.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafrex/spa-github-pages.git"
+  },
+  "author": "Rafael Pedicini <code@rafrex.com>",
+  "license": "MIT",
+  "dependencies": {
+    "current-input": "^1.1.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-1": "^6.5.0",
+    "eslint": "^3.2.2",
+    "eslint-config-airbnb": "^10.0.0",
+    "eslint-plugin-import": "^1.12.0",
+    "eslint-plugin-jsx-a11y": "^2.0.1",
+    "eslint-plugin-react": "^6.0.0",
+    "live-server": "^1.0.0",
+    "webpack": "^1.13.1"
+  }
+}
