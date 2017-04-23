@@ -1,3 +1,9 @@
+Things to note
+
+-- We can directory map using "mddir" from this package https://github.com/JohnByrneRepo/mddir, https://www.npmjs.com/package/mddir
+
+
+
 ## My Stack Problems
 
 > This project forked and has been modified from [A simple grey theme for Jekyll](https://github.com/liamsymonds/simplygrey-jekyll), and the search posts using [Super Search](https://github.com/chinchang/super-search)
