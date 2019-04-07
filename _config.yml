@@ -1,10 +1,10 @@
-title: Personal Blog & Site About Things I Code
+title: title
 description: description
-author: Chris Hsieh
-github-site: https://github.com/JumpingRock/JumpingRock.io
-github: https://github.com/JumpingRock/
-about: Hi I am a Software Dev I like Java. My alternative alias is JumpingRock.
-disqus_shortname: JumpingCode
+author: Christopher Hsieh
+github-site: https://github.com/Christopher-Hsieh/Christopher-Hsieh.io
+github: https://github.com/Christopher-Hsieh
+about: about
+disqus_shortname: disqus-shortme
 google_analytics: UA-83903069-1
 
 enableTags: true
