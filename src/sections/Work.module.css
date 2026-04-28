@@ -178,12 +178,20 @@ a.shot:hover .shotCaption {
 
 /* ---------------- Mobile video (phone frame) ---------------- */
 
+.videoRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--s-5);
+  justify-items: center;
+  margin-top: var(--s-5);
+}
+
 .videoWrap {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--s-3);
-  margin-bottom: var(--s-5);
+  max-width: 240px;
 }
 
 .phone {
@@ -248,10 +256,6 @@ a.shot:hover .shotCaption {
 .liveLinksHead::before {
   content: '//';
   color: var(--accent);
-}
-
-.liveLinksDot {
-  display: none;
 }
 
 .liveLinksGrid {
