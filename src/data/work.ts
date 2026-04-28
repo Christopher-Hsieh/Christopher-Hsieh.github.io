@@ -112,6 +112,33 @@ export const work: WorkItem[] = [
     ],
   },
   {
+    id: 'ios-web-auth',
+    title: 'Web \u2194 iOS Auth Bridge \u2014 Nike App',
+    company: 'Nike',
+    blurb:
+      'As lead of the Web Platform team, partnered cross-team with iOS engineers to build a JavaScript bridge so the Nike app could embed our web login portal inside an ASWebAuthenticationSession. One source of truth for sign-in UI, one team owning the auth flow, an identical experience across web and iOS \u2014 and any change to the web login lights up on mobile the moment it deploys. The clip on the right is the live Nike iOS app: tap Sign In \u2192 ASWebAuthenticationSession \u2192 the same web portal that powers nike.com.',
+    tags: [
+      'Web Platform Leadership',
+      'iOS \u2194 Web JS Bridge',
+      'ASWebAuthenticationSession',
+      'OAuth',
+      'Cross-team',
+    ],
+    videos: [
+      {
+        src: '/work/nike-app-login-mobile.mp4',
+        caption: 'Nike iOS app \u2192 ASWebAuthenticationSession \u2192 shared web login',
+      },
+    ],
+    liveLinks: [
+      {
+        label: 'Nike app on the App Store',
+        sublabel: 'Try it yourself \u00b7 tap Sign In',
+        href: 'https://apps.apple.com/us/app/nike/id383098204',
+      },
+    ],
+  },
+  {
     id: 'mfe-shell',
     title: 'Micro Frontend Shell & Standards',
     company: 'Nike',
