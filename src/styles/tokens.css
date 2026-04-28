@@ -1,16 +1,16 @@
 :root {
-  /* Color palette — dark, clean, code-aesthetic */
-  --bg: #0a0a0b;
-  --bg-elev: #111114;
-  --bg-elev-2: #16161b;
-  --fg: #e7e7ea;
-  --fg-dim: #9a9aa3;
-  --fg-mute: #6b6b74;
-  --accent: #c6ff3d;
-  --accent-dim: #8fb52e;
-  --accent-soft: rgba(198, 255, 61, 0.12);
-  --border: #1f1f24;
-  --border-strong: #2a2a31;
+  /* Color palette — moody dark, blue-charcoal, light-blue accent */
+  --bg: #000000;
+  --bg-elev: #11202a;
+  --bg-elev-2: #1a2d3a;
+  --fg: #f4f4f9;
+  --fg-dim: #b8c5cc;
+  --fg-mute: #586f7c;
+  --accent: #b8dbd9;
+  --accent-dim: #8fb6b4;
+  --accent-soft: rgba(184, 219, 217, 0.12);
+  --border: #1f2a33;
+  --border-strong: #2f4550;
   --danger: #ff5577;
 
   /* Typography */
@@ -40,8 +40,8 @@
 
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.4);
-  --shadow-glow: 0 0 0 1px var(--accent-soft), 0 6px 32px rgba(198, 255, 61, 0.08);
+  --shadow-md: 0 4px 24px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 0 1px var(--accent-soft), 0 6px 32px rgba(184, 219, 217, 0.1);
 
   /* Layout */
   --max-w: 1100px;

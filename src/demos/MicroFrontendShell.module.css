@@ -84,7 +84,7 @@
   background: linear-gradient(
     180deg,
     var(--bg-elev) 0%,
-    rgba(198, 255, 61, 0.04) 100%
+    rgba(184, 219, 217, 0.05) 100%
   );
 }
 
@@ -94,7 +94,7 @@
   background: linear-gradient(
     180deg,
     var(--bg-elev) 0%,
-    rgba(198, 255, 61, 0.06) 100%
+    rgba(184, 219, 217, 0.08) 100%
   );
 }
 

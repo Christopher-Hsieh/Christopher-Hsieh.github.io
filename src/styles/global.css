@@ -40,7 +40,7 @@ body {
   background-image:
     radial-gradient(
       ellipse 60% 40% at 50% -10%,
-      rgba(198, 255, 61, 0.06),
+      rgba(184, 219, 217, 0.07),
       transparent 60%
     );
   background-attachment: fixed;
