@@ -3,17 +3,17 @@ export const profile = {
   handle: '@christopher-hsieh',
   title: 'Lead Software Engineer',
   status:
-    'Open to senior / staff / lead opportunities (seeking teams obsessed with both the craft and the people using it)',
+    'Open to senior / staff / lead opportunities (seeking teams obsessed with both the craft & the people using it)',
   location: 'Fishers, IN',
   email: 'christopher.j.hsieh@gmail.com',
   phone: '(574) 514-4447',
   linkedin: 'https://www.linkedin.com/in/christopher-j-hsieh',
   github: 'https://github.com/Christopher-Hsieh',
   pitch:
-    'Engineering leader with 10+ years building consumer-facing web at scale and leading enterprise-wide applications from greenfield to production — Nike.com, Liberty Mutual, micro frontends, platforms, and the people who ship them.',
+    'Engineering leader with 10+ years shipping web applications across teams, orgs, & disciplines. Greenfield to production at Nike, Liberty Mutual — micro frontends, platforms, and the people who ship them.',
   summary: [
-    'I build and scale consumer-facing and internal web applications, most recently at Nike where I own platform-wide initiatives and high-traffic surfaces like Nike.com/retail.',
-    'My focus is combining deep frontend technical expertise with the cross-functional leadership it takes to actually ship — from design and product partnership to evangelizing standards across a dozen+ teams.',
+    'I build and scale web applications across teams and orgs — most recently at Nike where I own platform-wide initiatives and high-traffic surfaces like Nike.com/retail.',
+    'An MBA-trained engineer focused on the cross-functional leadership it takes to actually ship — partnering with design, product, and a dozen+ teams to evangelize standards and move work from greenfield to production.',
   ],
   stats: [
     { value: '10+', label: 'Years building for the web' },
