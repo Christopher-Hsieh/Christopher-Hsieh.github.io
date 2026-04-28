@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#0a0a0b" />
+  <rect width="32" height="32" rx="6" fill="#000000" />
   <text
     x="50%"
     y="56%"
@@ -8,7 +8,7 @@
     font-family="JetBrains Mono, ui-monospace, monospace"
     font-weight="700"
     font-size="14"
-    fill="#c6ff3d"
+    fill="#b8dbd9"
   >
     cjh
   </text>
