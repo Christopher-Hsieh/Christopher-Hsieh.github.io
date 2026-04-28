@@ -15,17 +15,24 @@
 
 .statusRow {
   display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 11px;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 8px 14px 9px;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 18px;
   background: var(--bg-elev);
   align-self: flex-start;
   font-family: var(--font-mono);
   font-size: 0.78rem;
   color: var(--fg-dim);
   margin-bottom: var(--s-4);
+  max-width: 100%;
+  line-height: 1.55;
+}
+
+.statusSecondLine {
+  display: block;
+  color: var(--fg-mute);
 }
 
 .dot {
@@ -35,6 +42,11 @@
   background: var(--accent);
   box-shadow: 0 0 0 4px rgba(184, 219, 217, 0.22);
   animation: pulse 2s var(--ease) infinite;
+  flex-shrink: 0;
+  /* Nudge the dot down so its center aligns with the optical center of the
+     first line of text (font-size 0.78rem * line-height 1.55 / 2 ≈ 9.7px,
+     dot center is at 3.5px from its top → margin-top ≈ 6px). */
+  margin-top: 6px;
 }
 
 @keyframes pulse {
@@ -63,6 +75,27 @@
 .handle {
   color: var(--accent);
   font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--dur-fast) var(--ease);
+}
+
+.handle:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.handleArrow {
+  font-size: 0.8em;
+  color: var(--fg-mute);
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.handle:hover .handleArrow {
+  color: var(--accent);
 }
 
 .name {
