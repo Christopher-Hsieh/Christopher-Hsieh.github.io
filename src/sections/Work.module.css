@@ -1,0 +1,125 @@
+.heading {
+  margin-bottom: var(--s-3);
+}
+
+.subhead {
+  max-width: 720px;
+  margin-bottom: var(--s-7);
+  color: var(--fg-dim);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-6);
+}
+
+.card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: var(--s-6);
+  transition:
+    border-color var(--dur-med) var(--ease),
+    transform var(--dur-med) var(--ease);
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+}
+
+@media (max-width: 720px) {
+  .card {
+    padding: var(--s-4);
+  }
+}
+
+.cardHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--s-4);
+  margin-bottom: var(--s-3);
+  flex-wrap: wrap;
+}
+
+.cardCompany {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.cardTitle {
+  font-size: 1.4rem;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.cardLink {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--fg-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+  padding: 6px 10px;
+}
+
+.cardLink:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cardBlurb {
+  color: var(--fg-dim);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: var(--s-4);
+  max-width: 760px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: var(--s-5);
+}
+
+.demo {
+  border-top: 1px solid var(--border);
+  padding-top: var(--s-5);
+}
+
+.fallback {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--fg-mute);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: var(--s-5);
+  background: var(--bg-elev-2);
+  border-radius: var(--r-md);
+  border: 1px dashed var(--border-strong);
+  justify-content: center;
+}
+
+.fallbackSpinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--fg-mute);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

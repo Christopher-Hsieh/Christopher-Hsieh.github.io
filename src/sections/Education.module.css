@@ -1,0 +1,48 @@
+.heading {
+  margin-bottom: var(--s-6);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-4);
+}
+
+@media (max-width: 720px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s-5);
+}
+
+.year {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  margin-bottom: var(--s-3);
+}
+
+.school {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.location {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--fg-mute);
+  margin-bottom: var(--s-3);
+}
+
+.degree {
+  margin: 0;
+  color: var(--fg-dim);
+  font-size: 0.95rem;
+}
