@@ -1,0 +1,78 @@
+.term {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  box-shadow: var(--shadow-md);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: var(--bg-elev-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-strong);
+}
+
+.dot[data-color='r'] {
+  background: #ff5f56;
+}
+.dot[data-color='y'] {
+  background: #ffbd2e;
+}
+.dot[data-color='g'] {
+  background: #27c93f;
+}
+
+.title {
+  margin-left: auto;
+  font-size: 0.78rem;
+  color: var(--fg-mute);
+}
+
+.body {
+  margin: 0;
+  padding: 16px 18px;
+  color: var(--fg);
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.7;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.lineCmd {
+  color: var(--fg);
+}
+
+.prompt {
+  color: var(--accent);
+  user-select: none;
+  margin-right: 4px;
+}
+
+.lineOut {
+  color: var(--fg-dim);
+  padding-left: 0;
+}
+
+.arrow {
+  color: var(--accent-dim);
+  user-select: none;
+  margin-right: 4px;
+}
+
+.lineComment {
+  color: var(--fg-mute);
+  font-style: italic;
+}

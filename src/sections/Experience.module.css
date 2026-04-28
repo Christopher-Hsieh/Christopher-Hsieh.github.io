@@ -1,0 +1,13 @@
+.heading {
+  margin-bottom: var(--s-3);
+}
+
+.subhead {
+  max-width: 720px;
+  margin-bottom: var(--s-7);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}

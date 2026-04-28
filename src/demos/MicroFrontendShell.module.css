@@ -1,0 +1,256 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-4);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  flex-wrap: wrap;
+}
+
+.cta {
+  background: var(--accent);
+  color: #000;
+  border: none;
+  padding: 9px 16px;
+  border-radius: var(--r-md);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+}
+
+.ctaGhost {
+  background: transparent;
+  color: var(--fg-dim);
+  border: 1px solid var(--border-strong);
+  padding: 9px 14px;
+  border-radius: var(--r-md);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.ctaGhost:hover {
+  color: var(--fg);
+  border-color: var(--accent);
+}
+
+.shellTag {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--fg-mute);
+}
+
+.canvas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-3);
+}
+
+@media (max-width: 640px) {
+  .canvas {
+    grid-template-columns: 1fr;
+  }
+}
+
+.module {
+  background: var(--bg-elev);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--r-md);
+  padding: var(--s-4);
+  transition:
+    border-color var(--dur-med) var(--ease),
+    background var(--dur-med) var(--ease);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  min-height: 140px;
+}
+
+.s_fetching {
+  border-color: var(--fg-mute);
+}
+
+.s_mounting {
+  border-color: var(--accent-dim);
+  background: linear-gradient(
+    180deg,
+    var(--bg-elev) 0%,
+    rgba(198, 255, 61, 0.04) 100%
+  );
+}
+
+.s_ready {
+  border-style: solid;
+  border-color: var(--accent);
+  background: linear-gradient(
+    180deg,
+    var(--bg-elev) 0%,
+    rgba(198, 255, 61, 0.06) 100%
+  );
+}
+
+.modHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modName {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--fg);
+}
+
+.modVersion {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-mute);
+}
+
+.modBody {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.modIdle {
+  color: var(--fg-mute);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.spinner {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--fg);
+  position: relative;
+  padding-left: 18px;
+}
+
+.spinner::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--fg-mute);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.modReady {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--fg);
+}
+
+.check {
+  color: var(--accent);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.modError {
+  color: var(--danger);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.modFoot {
+  border-top: 1px solid var(--border);
+  padding-top: var(--s-3);
+}
+
+.modRemote {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--fg-mute);
+  word-break: break-all;
+}
+
+.logs {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+
+.logsBar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: var(--bg-elev-2);
+  border-bottom: 1px solid var(--border);
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dot[data-color='r'] {
+  background: #ff5f56;
+}
+.dot[data-color='y'] {
+  background: #ffbd2e;
+}
+.dot[data-color='g'] {
+  background: #27c93f;
+}
+
+.logsTitle {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-mute);
+}
+
+.logsBody {
+  margin: 0;
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--fg);
+  max-height: 180px;
+  overflow-y: auto;
+}
+
+.logLine {
+  display: flex;
+  gap: 8px;
+  padding: 2px 0;
+}
+
+.logTime {
+  color: var(--fg-mute);
+  min-width: 56px;
+}
+
+.logArrow {
+  color: var(--accent-dim);
+}
+
+.logText {
+  color: var(--fg-dim);
+}

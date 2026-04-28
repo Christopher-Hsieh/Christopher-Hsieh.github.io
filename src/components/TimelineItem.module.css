@@ -1,0 +1,139 @@
+.item {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: var(--s-4);
+  padding-bottom: var(--s-7);
+  position: relative;
+}
+
+.item:last-child .line {
+  display: none;
+}
+
+.rail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 6px;
+}
+
+.dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 0 4px rgba(198, 255, 61, 0.06);
+  z-index: 1;
+}
+
+.line {
+  position: absolute;
+  top: 22px;
+  bottom: -8px;
+  width: 1px;
+  background: var(--border-strong);
+}
+
+.body {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s-5);
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--s-4);
+  margin-bottom: var(--s-4);
+  flex-wrap: wrap;
+}
+
+.company {
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--fg);
+}
+
+.location {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--fg-mute);
+  margin-top: 2px;
+}
+
+.roles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.role {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--fg-dim);
+  display: flex;
+  gap: var(--s-3);
+  justify-content: flex-end;
+}
+
+.roleTitle {
+  color: var(--fg);
+}
+
+.roleDates {
+  color: var(--fg-mute);
+}
+
+.bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--s-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+
+.bullet {
+  position: relative;
+  padding-left: 18px;
+  color: var(--fg-dim);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.bullet::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: var(--s-4);
+}
+
+@media (max-width: 640px) {
+  .head {
+    flex-direction: column;
+  }
+  .roles {
+    text-align: left;
+  }
+  .role {
+    justify-content: flex-start;
+  }
+}
