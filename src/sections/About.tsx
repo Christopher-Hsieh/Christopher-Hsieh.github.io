@@ -16,8 +16,8 @@ export default function About() {
       >
         <SectionLabel label="about" />
         <h2 className={styles.heading}>
-          Building consumer-facing web that
-          <span className={styles.accent}> actually ships.</span>
+          Building software. For the people who
+          <span className={styles.accent}> actually use it.</span>
         </h2>
 
         <div className={styles.grid}>
@@ -34,7 +34,7 @@ export default function About() {
               { type: 'out', text: 'react, typescript, vite, next.js,' },
               { type: 'out', text: 'micro frontends, java, python, aws' },
               { type: 'cmd', text: 'echo $STATUS' },
-              { type: 'out', text: 'shipping at scale + leveling teams up' },
+              { type: 'out', text: 'shipping at scale, for the people using it' },
             ]}
           />
         </div>
