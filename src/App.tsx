@@ -6,6 +6,7 @@ import Experience from './sections/Experience';
 import Skills from './sections/Skills';
 import Education from './sections/Education';
 import Contact from './sections/Contact';
+import SideQuest from './sections/SideQuest';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Skills />
         <Education />
         <Contact />
+        <SideQuest />
       </main>
       <footer
         style={{
@@ -30,7 +32,7 @@ export default function App() {
           borderTop: '1px solid var(--border)',
         }}
       >
-        // built with vite + react + ts &nbsp;·&nbsp; deployed via github actions
+        // built with vite + react + ts + love ❤️ &nbsp;·&nbsp; deployed via github actions
       </footer>
     </>
   );

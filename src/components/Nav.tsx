@@ -7,6 +7,7 @@ const links = [
   { href: '#experience', label: 'experience' },
   { href: '#skills', label: 'skills' },
   { href: '#contact', label: 'contact' },
+  { href: '#side-quest', label: 'side quest' },
 ];
 
 export default function Nav() {
