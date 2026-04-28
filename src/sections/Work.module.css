@@ -146,6 +146,36 @@ a.shot:hover .shotCaption {
   padding-top: var(--s-5);
 }
 
+/* ---------------- Side-by-side (text left, mobile video right) ---------------- */
+
+.split {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--s-6);
+  align-items: start;
+}
+
+.splitLeft {
+  min-width: 0;
+}
+
+.splitRight {
+  width: 240px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 820px) {
+  .split {
+    grid-template-columns: 1fr;
+    gap: var(--s-5);
+  }
+  .splitRight {
+    width: 100%;
+    justify-self: center;
+    max-width: 240px;
+  }
+}
+
 /* ---------------- Mobile video (phone frame) ---------------- */
 
 .videoWrap {

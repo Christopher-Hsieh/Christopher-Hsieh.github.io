@@ -66,8 +66,12 @@ export const work: WorkItem[] = [
     title: 'Dynamic Store Pages — Nike.com/retail/s/*',
     company: 'Nike',
     blurb:
-      'Built the architecture behind every Nike retail page \u2014 the directory at /retail/directory and every individual store page like /retail/s/nike-soho or /retail/s/nike-oxford-circus. Pages are dynamically generated from a backend so product owners and store ops can update hours, photos, and services and have those changes flow through to production within minutes, globally. Open any of the live links below to see it in action.',
+      'Built the architecture behind every Nike retail page \u2014 the directory at /retail/directory and every individual store page like /retail/s/nike-soho or /retail/s/nike-oxford-circus. Pages are dynamically generated from a backend so product owners and store ops can update hours, photos, and services and have those changes flow through to production within minutes, globally. The clip on the right is the live mobile view of /retail/s/nike-soho \u2014 open any of the links below to see more.',
     tags: ['SSG / ISR', 'Headless CMS', 'Editorial Workflow', 'Scale'],
+    video: {
+      src: '/work/nike-soho-mobile.mp4',
+      caption: 'Live mobile view · /retail/s/nike-soho',
+    },
     liveLinks: [
       {
         label: '/retail/directory',
@@ -83,11 +87,6 @@ export const work: WorkItem[] = [
         label: '/retail/s/nike-oxford-circus',
         sublabel: 'Nike Oxford Circus · London',
         href: 'https://www.nike.com/retail/s/nike-oxford-circus',
-      },
-      {
-        label: '/retail/s/nike-beaverton',
-        sublabel: 'Nike Beaverton · OR',
-        href: 'https://www.nike.com/retail/s/nike-beaverton',
       },
     ],
   },
