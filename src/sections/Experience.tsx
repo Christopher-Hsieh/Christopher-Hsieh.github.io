@@ -16,7 +16,7 @@ export default function Experience() {
         <SectionLabel label="experience" />
         <h2 className={styles.heading}>Where I&apos;ve worked.</h2>
         <p className={styles.subhead}>
-          From open-source contributions and internships to platform leadership at Nike
+          From internships in Fortran to global cross-team initiatives at Nike
           and Liberty Mutual.
         </p>
 
