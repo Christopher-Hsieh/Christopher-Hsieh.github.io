@@ -4,6 +4,12 @@ export type LiveLink = {
   sublabel?: string;
 };
 
+export type VideoRef = {
+  src: string;
+  poster?: string;
+  caption?: string;
+};
+
 export type WorkItem = {
   id: string;
   title: string;
@@ -17,16 +23,12 @@ export type WorkItem = {
     caption?: string;
     href?: string;
   };
-  /** Optional mobile-format MP4 played inside a phone frame. */
-  video?: {
-    src: string;
-    poster?: string;
-    caption?: string;
-  };
+  /** Mobile-format MP4s played inside phone frames. One = side-by-side with text. Two+ = grid below the text. */
+  videos?: VideoRef[];
   /** "See it live" link list rendered as a grid of cards. */
   liveLinks?: LiveLink[];
   /** Optional interactive demo. Cards without a demoId render only their visual + links. */
-  demoId?: 'storeSearch' | 'mfeShell';
+  demoId?: 'mfeShell';
 };
 
 export const work: WorkItem[] = [
@@ -35,13 +37,30 @@ export const work: WorkItem[] = [
     title: 'Store Search — Nike.com Micro Frontend',
     company: 'Nike',
     blurb:
-      'Owned a consumer-facing micro frontend that powers store search across Nike.com. Drove it from POC to production and integrated across ~12 teams. Try a faithful interactive mock below — debounced search, keyboard navigation, the works.',
-    tags: ['React', 'Micro Frontend', 'TypeScript', 'A11y', 'Performance'],
-    link: {
-      label: 'See it on Nike.com',
-      href: 'https://www.nike.com/retail',
-    },
-    demoId: 'storeSearch',
+      'Owned a consumer-facing micro frontend that shows up wherever a Nike.com customer needs to pick a store \u2014 from filtering products by store on /w, to selecting a pickup point at checkout. POC to production, integrated across ~12 teams. The two recordings below are the live MFE in two different parts of the consumer flow.',
+    tags: ['React', 'Micro Frontend', 'TypeScript', 'A11y', 'Performance', 'Cross-team'],
+    videos: [
+      {
+        src: '/work/nike-store-page-mobile.mp4',
+        caption: 'Step 1 \u00b7 nike.com/w \u2014 filter products by store',
+      },
+      {
+        src: '/work/nike-checkout-mobile.mp4',
+        caption: 'Step 2 \u00b7 nike.com/checkout \u2014 select a pickup store',
+      },
+    ],
+    liveLinks: [
+      {
+        label: '/w',
+        sublabel: 'Product listing \u00b7 filter by store',
+        href: 'https://www.nike.com/w',
+      },
+      {
+        label: '/checkout',
+        sublabel: 'Checkout \u00b7 pickup selection',
+        href: 'https://www.nike.com/checkout',
+      },
+    ],
   },
   {
     id: 'store-locator',
@@ -68,10 +87,12 @@ export const work: WorkItem[] = [
     blurb:
       'Built the architecture behind every Nike retail page \u2014 the directory at /retail/directory and every individual store page like /retail/s/nike-soho or /retail/s/nike-oxford-circus. Pages are dynamically generated from a backend so product owners and store ops can update hours, photos, and services and have those changes flow through to production within minutes, globally. The clip on the right is the live mobile view of /retail/s/nike-soho \u2014 open any of the links below to see more.',
     tags: ['SSG / ISR', 'Headless CMS', 'Editorial Workflow', 'Scale'],
-    video: {
-      src: '/work/nike-soho-mobile.mp4',
-      caption: 'Live mobile view · /retail/s/nike-soho',
-    },
+    videos: [
+      {
+        src: '/work/nike-soho-mobile.mp4',
+        caption: 'Live mobile view \u00b7 /retail/s/nike-soho',
+      },
+    ],
     liveLinks: [
       {
         label: '/retail/directory',
@@ -80,12 +101,12 @@ export const work: WorkItem[] = [
       },
       {
         label: '/retail/s/nike-soho',
-        sublabel: 'Nike Soho · NYC',
+        sublabel: 'Nike Soho \u00b7 NYC',
         href: 'https://www.nike.com/retail/s/nike-soho',
       },
       {
         label: '/retail/s/nike-oxford-circus',
-        sublabel: 'Nike Oxford Circus · London',
+        sublabel: 'Nike Oxford Circus \u00b7 London',
         href: 'https://www.nike.com/retail/s/nike-oxford-circus',
       },
     ],

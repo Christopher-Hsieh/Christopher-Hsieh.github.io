@@ -1,15 +1,13 @@
 import { lazy, Suspense } from 'react';
 import SectionLabel from '../components/SectionLabel';
 import Tag from '../components/Tag';
-import { work, type WorkItem } from '../data/work';
+import { work, type WorkItem, type VideoRef } from '../data/work';
 import { useInView } from '../hooks/useInView';
 import styles from './Work.module.css';
 
-const StoreSearchModal = lazy(() => import('../demos/StoreSearchModal'));
 const MicroFrontendShell = lazy(() => import('../demos/MicroFrontendShell'));
 
 function DemoFor({ id }: { id: NonNullable<WorkItem['demoId']> }) {
-  if (id === 'storeSearch') return <StoreSearchModal />;
   if (id === 'mfeShell') return <MicroFrontendShell />;
   return null;
 }
@@ -57,10 +55,10 @@ function Screenshot({ shot }: { shot: NonNullable<WorkItem['screenshot']> }) {
   );
 }
 
-function MobileVideo({ video }: { video: NonNullable<WorkItem['video']> }) {
+function MobilePhone({ video }: { video: VideoRef }) {
   return (
     <div className={styles.videoWrap}>
-      <div className={styles.phone} aria-hidden="false">
+      <div className={styles.phone}>
         <div className={styles.phoneNotch} aria-hidden="true" />
         <video
           className={styles.phoneVideo}
@@ -78,13 +76,20 @@ function MobileVideo({ video }: { video: NonNullable<WorkItem['video']> }) {
   );
 }
 
+function VideoRow({ videos }: { videos: VideoRef[] }) {
+  return (
+    <div className={styles.videoRow}>
+      {videos.map((v) => (
+        <MobilePhone key={v.src} video={v} />
+      ))}
+    </div>
+  );
+}
+
 function LiveLinks({ links }: { links: NonNullable<WorkItem['liveLinks']> }) {
   return (
     <div className={styles.liveLinksBlock}>
-      <div className={styles.liveLinksHead}>
-        <span className={styles.liveLinksDot} aria-hidden="true" />
-        See it live
-      </div>
+      <div className={styles.liveLinksHead}>See it live</div>
       <div className={styles.liveLinksGrid}>
         {links.map((l) => (
           <a
@@ -108,6 +113,47 @@ function LiveLinks({ links }: { links: NonNullable<WorkItem['liveLinks']> }) {
   );
 }
 
+function CardBody({ w }: { w: WorkItem }) {
+  const videos = w.videos ?? [];
+  const sideBySide = videos.length === 1;
+
+  // 1 video → side-by-side (text left, single phone right)
+  if (sideBySide) {
+    return (
+      <div className={styles.split}>
+        <div className={styles.splitLeft}>
+          <p className={styles.cardBlurb}>{w.blurb}</p>
+          <div className={styles.tags}>
+            {w.tags.map((t) => (
+              <Tag key={t}>{t}</Tag>
+            ))}
+          </div>
+          {w.screenshot && <Screenshot shot={w.screenshot} />}
+          {w.liveLinks && <LiveLinks links={w.liveLinks} />}
+        </div>
+        <div className={styles.splitRight}>
+          <MobilePhone video={videos[0]!} />
+        </div>
+      </div>
+    );
+  }
+
+  // 0 or 2+ videos → vertical flow with optional video row at the bottom
+  return (
+    <>
+      <p className={styles.cardBlurb}>{w.blurb}</p>
+      <div className={styles.tags}>
+        {w.tags.map((t) => (
+          <Tag key={t}>{t}</Tag>
+        ))}
+      </div>
+      {w.screenshot && <Screenshot shot={w.screenshot} />}
+      {w.liveLinks && <LiveLinks links={w.liveLinks} />}
+      {videos.length >= 2 && <VideoRow videos={videos} />}
+    </>
+  );
+}
+
 export default function Work() {
   const { ref, inView } = useInView<HTMLDivElement>();
 
@@ -123,8 +169,8 @@ export default function Work() {
         </h2>
         <p className={styles.subhead}>
           Real systems are behind logins, paywalls, or VPNs — so the cards below include
-          small interactive mocks I built that mirror what I led, plus deep links to the
-          live property where applicable.
+          screenshots, recordings, and small interactive mocks that mirror what I led,
+          plus deep links to the live property where applicable.
         </p>
 
         <div className={styles.cards}>
@@ -147,34 +193,7 @@ export default function Work() {
                   </a>
                 )}
               </header>
-              {w.video ? (
-                <div className={styles.split}>
-                  <div className={styles.splitLeft}>
-                    <p className={styles.cardBlurb}>{w.blurb}</p>
-                    <div className={styles.tags}>
-                      {w.tags.map((t) => (
-                        <Tag key={t}>{t}</Tag>
-                      ))}
-                    </div>
-                    {w.screenshot && <Screenshot shot={w.screenshot} />}
-                    {w.liveLinks && <LiveLinks links={w.liveLinks} />}
-                  </div>
-                  <div className={styles.splitRight}>
-                    <MobileVideo video={w.video} />
-                  </div>
-                </div>
-              ) : (
-                <>
-                  <p className={styles.cardBlurb}>{w.blurb}</p>
-                  <div className={styles.tags}>
-                    {w.tags.map((t) => (
-                      <Tag key={t}>{t}</Tag>
-                    ))}
-                  </div>
-                  {w.screenshot && <Screenshot shot={w.screenshot} />}
-                  {w.liveLinks && <LiveLinks links={w.liveLinks} />}
-                </>
-              )}
+              <CardBody w={w} />
               {w.demoId && (
                 <div className={styles.demo}>
                   <Suspense fallback={<DemoFallback />}>
