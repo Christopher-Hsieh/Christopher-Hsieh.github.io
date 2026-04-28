@@ -147,15 +147,34 @@ export default function Work() {
                   </a>
                 )}
               </header>
-              <p className={styles.cardBlurb}>{w.blurb}</p>
-              <div className={styles.tags}>
-                {w.tags.map((t) => (
-                  <Tag key={t}>{t}</Tag>
-                ))}
-              </div>
-              {w.screenshot && <Screenshot shot={w.screenshot} />}
-              {w.video && <MobileVideo video={w.video} />}
-              {w.liveLinks && <LiveLinks links={w.liveLinks} />}
+              {w.video ? (
+                <div className={styles.split}>
+                  <div className={styles.splitLeft}>
+                    <p className={styles.cardBlurb}>{w.blurb}</p>
+                    <div className={styles.tags}>
+                      {w.tags.map((t) => (
+                        <Tag key={t}>{t}</Tag>
+                      ))}
+                    </div>
+                    {w.screenshot && <Screenshot shot={w.screenshot} />}
+                    {w.liveLinks && <LiveLinks links={w.liveLinks} />}
+                  </div>
+                  <div className={styles.splitRight}>
+                    <MobileVideo video={w.video} />
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <p className={styles.cardBlurb}>{w.blurb}</p>
+                  <div className={styles.tags}>
+                    {w.tags.map((t) => (
+                      <Tag key={t}>{t}</Tag>
+                    ))}
+                  </div>
+                  {w.screenshot && <Screenshot shot={w.screenshot} />}
+                  {w.liveLinks && <LiveLinks links={w.liveLinks} />}
+                </>
+              )}
               {w.demoId && (
                 <div className={styles.demo}>
                   <Suspense fallback={<DemoFallback />}>
