@@ -143,7 +143,7 @@ export const work: WorkItem[] = [
     title: 'Retail Store Operations',
     company: 'Nike',
     blurb:
-      'A conceptual view of the platform powering retail-store operations. I helped shape the overall architecture \u2014 a host shell composing independently-shipped feature modules through micro frontends, with a single design system, a shared routing model, and a build pipeline that emits the same app to browsers, in-store iOS devices, and desktops. I also contributed to the finer details: a unified auth handshake and token refresh strategy, a state management approach that lets modules stay isolated while still coordinating through the host, and the observability and CI/CD patterns teams adopt as they onboard. Pick a target, mount a module, and explore the layout below.',
+      'A conceptual view of the platform powering retail-store operations. The result for store employees: one unified app to run a store \u2014 login, inventory lookup, customer assistance, transactions \u2014 with the same UX whether they pick it up on an in-store iOS device, a register browser, or a back-office desktop. I helped shape the overall architecture \u2014 a host shell composing independently-shipped feature modules through micro frontends, one design system, a shared routing model, and a build pipeline that emits the same app to every surface. I also contributed to the finer details: a unified auth handshake and token refresh strategy, a state management approach that lets modules stay isolated while coordinating through the host, and the observability and CI/CD patterns teams adopt as they onboard. Pick a target, mount a module, and explore the layout below.',
     tags: [
       'Micro Frontends',
       'Host / Feature Teams',
@@ -153,5 +153,27 @@ export const work: WorkItem[] = [
       'CI/CD',
     ],
     demoId: 'mfeShell',
+  },
+  {
+    id: 'lm-broker-portal',
+    title: 'Agent & Broker Quoting Portal \u2014 Liberty Mutual',
+    company: 'Liberty Mutual',
+    blurb:
+      'Built full-stack \u2014 backend services through frontend UI \u2014 on the internal portal that brokers and agents across the country use to quote, create, and bind commercial property & casualty policies. Led multiple teams across the multi-year build from greenfield to production; the platform now handles the full policy lifecycle and generates $100K+/day in premiums on average. The link below is Liberty Mutual\u2019s public overview of the broker / agent toolset I helped ship.',
+    tags: [
+      'Full Stack',
+      'Angular',
+      'Java / Spring',
+      'AWS',
+      'Greenfield \u2192 Prod',
+      'P&C Commercial Insurance',
+    ],
+    liveLinks: [
+      {
+        label: 'business.libertymutual.com/agent-and-broker-dashboard',
+        sublabel: 'Public overview of the broker / agent toolset',
+        href: 'https://business.libertymutual.com/agent-and-broker-dashboard/#midsize-and-large-brokers--property-and-casualty',
+      },
+    ],
   },
 ];

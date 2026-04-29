@@ -14,10 +14,13 @@ export default function Experience() {
         className={`container fadeIn ${inView ? 'isVisible' : ''}`}
       >
         <SectionLabel label="experience" />
-        <h2 className={styles.heading}>Where I&apos;ve worked.</h2>
+        <h2 className={styles.heading}>
+          Resume format <span className={styles.headingDash}>—</span> Where
+          I&apos;ve worked.
+        </h2>
         <p className={styles.subhead}>
-          From internships in Fortran to global cross-team initiatives at Nike
-          and Liberty Mutual.
+          The standard resume view if you&apos;d rather scan it that way — full
+          role history at Nike, Liberty Mutual, and earlier.
         </p>
 
         <div className={styles.timeline}>
