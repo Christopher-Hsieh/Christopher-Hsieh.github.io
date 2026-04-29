@@ -61,3 +61,176 @@
   color: var(--fg-mute);
   font-style: italic;
 }
+
+/* ============================================================ */
+/* Tech evolution timeline (sits above the categorized groups)   */
+/* ============================================================ */
+
+.tlBlock {
+  margin-bottom: var(--s-7);
+}
+
+.tlDesktop {
+  display: block;
+}
+
+.tlMobile {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .tlDesktop {
+    display: none;
+  }
+  .tlMobile {
+    display: block;
+  }
+}
+
+/* ----- Horizontal SVG (desktop) ----- */
+
+.tlHorizontal {
+  position: relative;
+  width: 100%;
+  /* Reserve enough room for the SVG height + the floating tech-tag column
+     that sits below master + the "also using" column above master. */
+  min-height: 240px;
+}
+
+.tlSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.tlMaster {
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.tlTick {
+  stroke: var(--fg-mute);
+  stroke-width: 1;
+}
+
+.tlDot {
+  fill: var(--accent);
+  stroke: var(--bg);
+  stroke-width: 2;
+}
+
+.tlAlsoDot {
+  fill: var(--bg);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.tlYearLabel {
+  position: absolute;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--fg-mute);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.tlTagsCol {
+  position: absolute;
+  transform: translateX(-50%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  width: max-content;
+  max-width: 200px;
+}
+
+.tlAboveCol {
+  position: absolute;
+  /* Pulled up by 100% of own height so the bottom edge of the column
+     aligns with the configured top: position (just above master). */
+  transform: translate(-50%, -100%);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  justify-content: center;
+  width: max-content;
+  max-width: 200px;
+  padding-bottom: 4px;
+}
+
+/* ----- Vertical list (mobile) ----- */
+
+.tlVertical {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.tlVRow {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: var(--s-3);
+  padding-bottom: var(--s-4);
+  position: relative;
+}
+
+.tlVRow:last-child {
+  padding-bottom: 0;
+}
+
+.tlVRail {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.tlVRail::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: -16px;
+  left: 50%;
+  width: 1px;
+  background: var(--border-strong);
+  transform: translateX(-50%);
+}
+
+.tlVRow:last-child .tlVRail::before {
+  bottom: 50%;
+}
+
+.tlVDot {
+  position: relative;
+  z-index: 1;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--bg);
+  margin-top: 4px;
+}
+
+.tlVBody {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.tlVYear {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+}
+
+.tlVTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}

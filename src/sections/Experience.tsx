@@ -32,6 +32,11 @@ export default function Experience() {
             />
           ))}
         </div>
+
+        <p className={styles.referencesNote}>
+          <span className={styles.referencesSlash}>//</span> references available
+          upon request for any of the above
+        </p>
       </div>
     </section>
   );
