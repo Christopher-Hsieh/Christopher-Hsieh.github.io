@@ -13,6 +13,9 @@
   max-width: 900px;
 }
 
+/* Hero entrance is now orchestrated by Motion (see Hero.tsx) — spring
+   physics + stagger via variants. CSS handles only the visual styling. */
+
 .statusRow {
   display: inline-flex;
   align-items: flex-start;
