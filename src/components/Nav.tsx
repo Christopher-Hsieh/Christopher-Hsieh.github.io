@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { motion, useScroll, useSpring } from 'motion/react';
 import styles from './Nav.module.css';
 
 const links = [
@@ -13,6 +14,15 @@ const links = [
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState<string>('');
+
+  // Spring-smoothed scroll progress (0 -> 1) drives the accent bar at the
+  // bottom of the nav. The spring takes the edge off the natural scroll jitter.
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 140,
+    damping: 24,
+    mass: 0.4,
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -62,6 +72,11 @@ export default function Nav() {
           ))}
         </nav>
       </div>
+      <motion.div
+        className={styles.progress}
+        style={{ scaleX: progress }}
+        aria-hidden="true"
+      />
     </header>
   );
 }

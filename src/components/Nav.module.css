@@ -22,6 +22,19 @@
   border-bottom-color: var(--border);
 }
 
+/* Spring-driven scroll progress bar (0 -> 1 scaleX) pinned to the bottom
+   edge of the nav. Origin: left so it grows from start of page → end. */
+.progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-dim));
+  transform-origin: left;
+  pointer-events: none;
+}
+
 .inner {
   width: 100%;
   max-width: var(--max-w);
