@@ -70,6 +70,15 @@
   margin-bottom: var(--s-7);
 }
 
+/* Sits between the subhead and the timeline as an italic clarifying line.
+   Negative top margin pulls it close to the subhead it continues from. */
+.timelineNote {
+  max-width: 720px;
+  margin: calc(-1 * var(--s-5)) 0 var(--s-6);
+  color: var(--fg-dim);
+  font-style: italic;
+}
+
 .tlDesktop {
   display: block;
 }

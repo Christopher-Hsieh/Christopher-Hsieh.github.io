@@ -12,13 +12,18 @@ export type TimelineEntry = {
 };
 
 export const timeline: TimelineEntry[] = [
-  { year: '2014', tech: ['VB'] },
-  { year: '2015', tech: ['Fortran'] },
-  { year: '2016', tech: ['Java'], alsoUsing: ['AWS'] },
-  { year: '2017', tech: ['Python'] },
-  { year: '2018', tech: ['Angular', 'Java'] },
-  { year: '2022', tech: ['React'] },
-  { year: '2024', tech: ['GraphQL'] },
+  { year: '2014', tech: ['VB'], alsoUsing: ['C'] },
+  { year: '2015', tech: ['Fortran'], alsoUsing: ['Java'] },
+  { year: '2016', tech: ['AWS'], alsoUsing: ['Spring'] },
+  { year: '2017', tech: ['Python'], alsoUsing: ['Docker'] },
+  { year: '2018', tech: ['AWS'], alsoUsing: ['CDK'] },
+  { year: '2019', tech: ['Javascript'],alsoUsing: ['Angular']  },
+  { year: '2020', tech: ['Splunk'],alsoUsing: ['Typescript']  },
+  { year: '2021', tech: ['Jenkins'], alsoUsing: ['React'] },
+  { year: '2022', tech: ['Next.js'], alsoUsing: ['Webpack'] },
+  { year: '2023', tech: ['Vite'], alsoUsing: ['GraphQL'] },
+  { year: '2024', tech: ['Web Platform'], alsoUsing: ['MFE']  },
+  { year: '2025', tech: ['AI']},
 ];
 
 /** Lowest year shown on the master line. */
