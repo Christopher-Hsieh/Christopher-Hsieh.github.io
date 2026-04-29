@@ -191,8 +191,13 @@ export default function Skills() {
         <SectionLabel label="skills" />
         <h2 className={styles.heading}>Tools I&apos;ve worked with.</h2>
         <p className={styles.subhead}>
-          Proven to learn new technologies fast and deliver with them — pick the right
-          tool for the job, then bring the team along.
+          Proven to learn new technologies fast and deliver with them — experience with what is needed to pick the right
+          tool for the job, then bring the teams along.
+        </p>
+
+        <p className={styles.timelineNote}>
+          Timeline is not exact- it shows the trend. e.g. In recent years, I&apos;ve worked
+          on defining the full tech-stack for cross-team and cross-org delivery.
         </p>
 
         <TechTimeline />
