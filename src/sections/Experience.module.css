@@ -11,3 +11,16 @@
   display: flex;
   flex-direction: column;
 }
+
+.referencesNote {
+  margin: var(--s-5) 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--fg-mute);
+  text-align: center;
+}
+
+.referencesSlash {
+  color: var(--accent);
+  margin-right: 4px;
+}

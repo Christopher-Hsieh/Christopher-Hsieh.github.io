@@ -140,11 +140,18 @@ export const work: WorkItem[] = [
   },
   {
     id: 'mfe-shell',
-    title: 'Micro Frontend Shell & Standards',
+    title: 'Retail Store Operations',
     company: 'Nike',
     blurb:
-      'Established the cross-team standards and shell patterns used to compose retail-employee web apps from independently-deployed modules. The demo below mounts two simulated remotes into a shell with realistic load states.',
-    tags: ['Module Federation', 'Architecture', 'Standards', 'CI/CD'],
+      'A conceptual view of the platform powering retail-store operations. I helped shape the overall architecture \u2014 a host shell composing independently-shipped feature modules through micro frontends, with a single design system, a shared routing model, and a build pipeline that emits the same app to browsers, in-store iOS devices, and desktops. I also contributed to the finer details: a unified auth handshake and token refresh strategy, a state management approach that lets modules stay isolated while still coordinating through the host, and the observability and CI/CD patterns teams adopt as they onboard. Pick a target, mount a module, and explore the layout below.',
+    tags: [
+      'Micro Frontends',
+      'Host / Feature Teams',
+      'Web \u2192 iOS / Desktop',
+      'Shared Design System',
+      'Routing Strategy',
+      'CI/CD',
+    ],
     demoId: 'mfeShell',
   },
 ];
