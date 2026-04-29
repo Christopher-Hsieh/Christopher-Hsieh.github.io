@@ -110,7 +110,7 @@
   /* Hide experience + side quest on very small screens to keep nav clean.
      The sections themselves are still scroll-reachable; the nav just
      prioritizes about / work / skills / contact on mobile. */
-  .link:nth-child(3),
+  .link:nth-child(4),
   .link:nth-child(6) {
     display: none;
   }

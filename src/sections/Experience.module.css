@@ -2,6 +2,11 @@
   margin-bottom: var(--s-3);
 }
 
+.headingDash {
+  color: var(--accent);
+  margin: 0 4px;
+}
+
 .subhead {
   max-width: 720px;
   margin-bottom: var(--s-7);

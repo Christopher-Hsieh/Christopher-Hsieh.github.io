@@ -4,8 +4,8 @@ import styles from './Nav.module.css';
 const links = [
   { href: '#about', label: 'about' },
   { href: '#work', label: 'work' },
-  { href: '#experience', label: 'experience' },
   { href: '#skills', label: 'skills' },
+  { href: '#experience', label: 'experience' },
   { href: '#contact', label: 'contact' },
   { href: '#side-quest', label: 'side quest' },
 ];
