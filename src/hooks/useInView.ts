@@ -9,7 +9,18 @@ type Options = {
 export function useInView<T extends HTMLElement = HTMLDivElement>(
   options: Options = {},
 ) {
-  const { threshold = 0.15, rootMargin = '0px 0px -10% 0px', once = true } = options;
+  /**
+   * `threshold: 0` is intentional and important.
+   *
+   * The maximum intersection ratio for an element is `viewport_height /
+   * element_height`. On a mobile viewport (~600px) a tall section like Work
+   * (~5000px) can never exceed ~12% intersection, so any threshold above
+   * that would silently never fire — the section would stay at opacity 0
+   * forever. Threshold 0 + a negative bottom rootMargin gives us "fire as
+   * soon as the section enters the top 90% of the viewport", which works
+   * regardless of element height.
+   */
+  const { threshold = 0, rootMargin = '0px 0px -10% 0px', once = true } = options;
   const ref = useRef<T | null>(null);
   const [inView, setInView] = useState(false);
 
