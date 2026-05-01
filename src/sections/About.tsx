@@ -1,9 +1,28 @@
+import { Fragment } from 'react';
 import SectionLabel from '../components/SectionLabel';
-import Terminal from '../components/Terminal';
 import Stat from '../components/Stat';
 import { profile } from '../data/profile';
 import { useInView } from '../hooks/useInView';
 import styles from './About.module.css';
+
+/**
+ * Render copy with a lightweight `**accent**` marker convention. Even-indexed
+ * splits are plain text; odd-indexed splits captured between `**` are wrapped
+ * in an accent span. Lets the data file stay as plain strings while still
+ * letting authors highlight kicker phrases.
+ */
+function renderWithAccents(text: string) {
+  const parts = text.split(/\*\*([^*]+)\*\*/g);
+  return parts.map((part, i) =>
+    i % 2 === 0 ? (
+      <Fragment key={i}>{part}</Fragment>
+    ) : (
+      <span key={i} className={styles.accent}>
+        {part}
+      </span>
+    ),
+  );
+}
 
 export default function About() {
   const { ref, inView } = useInView<HTMLDivElement>();
@@ -16,33 +35,21 @@ export default function About() {
       >
         <SectionLabel label="about" />
         <h2 className={styles.heading}>
-          Building software. For the people who
-          <span className={styles.accent}> actually use it.</span>
+          Building great software.
+          <span className={styles.accent}> With great teams.</span>
         </h2>
 
         <div className={styles.grid}>
           <div className={styles.copy}>
             {profile.summary.map((p, i) => (
-              <p key={i}>{p}</p>
+              <p key={i}>{renderWithAccents(p)}</p>
             ))}
           </div>
-          <Terminal
-            lines={[
-              { type: 'cmd', text: 'whoami' },
-              { type: 'out', text: 'christopher_hsieh' },
-              { type: 'cmd', text: 'cat skills.txt' },
-              { type: 'out', text: 'react, typescript, vite, next.js,' },
-              { type: 'out', text: 'micro frontends, java, python, aws' },
-              { type: 'cmd', text: 'echo $STATUS' },
-              { type: 'out', text: 'shipping at scale, for the people using it' },
-            ]}
-          />
-        </div>
-
-        <div className={styles.stats}>
-          {profile.stats.map((s) => (
-            <Stat key={s.label} value={s.value} label={s.label} />
-          ))}
+          <div className={styles.stats}>
+            {profile.stats.map((s) => (
+              <Stat key={s.label} value={s.value} label={s.label} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

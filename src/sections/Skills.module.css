@@ -63,21 +63,11 @@
 }
 
 /* ============================================================ */
-/* Tech evolution timeline (sits above the categorized groups)   */
+/* Discipline arc (sits above the categorized skills grid)       */
 /* ============================================================ */
 
 .tlBlock {
   margin-bottom: var(--s-7);
-}
-
-/* Sits between the subhead and the timeline as an italic clarifying line.
-   Negative top margin pulls it close to the subhead it continues from. */
-.timelineNote {
-  max-width: 720px;
-  margin: calc(-1 * var(--s-5)) auto var(--s-6);
-  color: var(--fg-dim);
-  font-style: italic;
-  text-align: center;
 }
 
 .tlDesktop {
@@ -88,7 +78,9 @@
   display: none;
 }
 
-@media (max-width: 720px) {
+/* The discipline arc is information-dense; collapse to vertical
+   sooner than the skills grid so cramped cards never appear. */
+@media (max-width: 900px) {
   .tlDesktop {
     display: none;
   }
@@ -97,82 +89,113 @@
   }
 }
 
-/* ----- Horizontal SVG (desktop) ----- */
+/* ----- Horizontal arc (desktop) ----- */
 
-.tlHorizontal {
-  position: relative;
-  width: 100%;
-  /* Reserve enough room for the SVG height + the floating tech-tag column
-     that sits below master + the "also using" column above master. */
-  min-height: 240px;
+.arcGrid {
+  display: grid;
+  /* `grid-template-columns` is set inline by the component using fr units
+     proportional to each phase's year-duration, so a 4-year phase visually
+     occupies 2x the width of a 2-year phase. */
+  gap: var(--s-3);
+  align-items: stretch;
 }
 
-.tlSvg {
-  display: block;
-  width: 100%;
-  height: auto;
-  overflow: visible;
+.phase {
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: var(--s-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  min-width: 0;
 }
 
-.tlMaster {
-  stroke: var(--border-strong);
-  stroke-width: 1.5;
-  stroke-linecap: round;
+.phaseCurrent {
+  border-color: var(--accent-dim);
+  box-shadow: var(--shadow-glow);
 }
 
-.tlTick {
-  stroke: var(--fg-mute);
-  stroke-width: 1;
+.phaseHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: var(--s-2);
 }
 
-.tlDot {
-  fill: var(--accent);
-  stroke: var(--bg);
-  stroke-width: 2;
-}
-
-.tlAlsoDot {
-  fill: var(--bg);
-  stroke: var(--accent);
-  stroke-width: 2;
-}
-
-.tlYearLabel {
-  position: absolute;
-  transform: translateX(-50%);
+.phaseRange {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
+  color: var(--accent);
+  text-transform: lowercase;
+}
+
+.phaseNow {
+  color: var(--fg-dim);
+}
+
+.phaseYears {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
   color: var(--fg-mute);
-  pointer-events: none;
+}
+
+.phaseLabel {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--fg);
+}
+
+.phaseFocus {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--fg-dim);
+  line-height: 1.5;
+}
+
+.phaseTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  /* Push tags to the card's bottom so all four cards align their tag
+     rows even when their `focus` lines wrap to different heights. */
+  margin-top: auto;
+}
+
+/* ----- Constants footer (sits under desktop or mobile arc) ----- */
+
+.constantsFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-3);
+  padding-top: var(--s-4);
+  margin-top: var(--s-4);
+  border-top: 1px dashed var(--border-strong);
+}
+
+.constantsLabel {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-transform: lowercase;
   white-space: nowrap;
 }
 
-.tlTagsCol {
-  position: absolute;
-  transform: translateX(-50%);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-  justify-content: center;
-  width: max-content;
-  max-width: 200px;
+.constantsLabel::before {
+  content: '// ';
+  color: var(--fg-mute);
 }
 
-.tlAboveCol {
-  position: absolute;
-  /* Pulled up by 100% of own height so the bottom edge of the column
-     aligns with the configured top: position (just above master). */
-  transform: translate(-50%, -100%);
+.constantsTags {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
-  justify-content: center;
-  width: max-content;
-  max-width: 200px;
-  padding-bottom: 4px;
+  gap: 6px;
 }
 
-/* ----- Vertical list (mobile) ----- */
+/* ----- Vertical list (mobile / narrow tablet) ----- */
 
 .tlVertical {
   list-style: none;

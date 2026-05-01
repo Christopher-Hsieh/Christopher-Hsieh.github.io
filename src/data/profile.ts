@@ -17,10 +17,12 @@ export const profile = {
     updated: '2026-05',
   },
   pitch:
-    'Engineering leader with 10+ years shipping applications successfully across teams, orgs, & disciplines. Greenfield to production at Nike, Liberty Mutual — distributed scalable backends, web platforms, and quality collab with people who ship them.',
+    'Full-stack engineer and platform lead with 10+ years of experience. Regularly partner with business leadership on technical initiatives and architectural direction. Bridge strategy and execution — set direction across engineering teams and remain hands-on from proof-of-concept to production.',
+  // Wrap any phrase in **double asterisks** to render it in the accent color.
+  // Pattern mirrors the section heading where the closing kicker pops.
   summary: [
-    'I build and scale web applications by partnering across teams and orgs — most recently at Nike where I owned platform-wide internal initiatives and high-traffic surfaces like Nike.com.',
-    'An MBA-trained engineer focused on the cross-functional work it takes to  ship — partnering with design, product, and engineering teams to make great software.',
+    'Great software comes when engineers understand the product — the why, the what, and the how. I completed my MBA in an evening program while working full-time as a Senior Engineer for this reason. I wanted to see both sides.',
+    "I'm passionate about great teams: a shared goal, and people who genuinely work together to reach it. Across 10+ years I've thrived on those teams and I've led them — successfully delivering many great products and enabling engineering initiatives while remaining hands-on.",
   ],
   stats: [
     { value: '10+', label: 'Years building software professionally' },

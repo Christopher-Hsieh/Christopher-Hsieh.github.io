@@ -1,33 +1,58 @@
-export type TimelineEntry = {
-  /** The year this tech stack was picked up (4-digit string). */
-  year: string;
-  /** Primary tech for this year — pills sit BELOW the timeline. */
+export type Phase = {
+  id: string;
+  /** Short discipline label, e.g. "Backend", "Platform Lead". */
+  label: string;
+  /** Relative-year label shown at the top, e.g. "Years 0-4". */
+  yearRange: string;
+  /** Calendar years used to compute proportional widths. */
+  yearStart: number;
+  yearEnd: number;
+  /** One-line description of the phase focus. */
+  focus: string;
+  /** Primary tech anchors for this phase. */
   tech: string[];
-  /**
-   * "Also using" tech — pills sit ABOVE the timeline, in the gap between this
-   * entry and the next. Use to fill in tools you picked up between primary
-   * milestones (e.g. AWS picked up while still primarily on Java in 2016).
-   */
-  alsoUsing?: string[];
 };
 
-export const timeline: TimelineEntry[] = [
-  { year: '2014', tech: ['VB'], alsoUsing: ['C'] },
-  { year: '2015', tech: ['Fortran'], alsoUsing: ['Java'] },
-  { year: '2016', tech: ['AWS'], alsoUsing: ['Spring'] },
-  { year: '2017', tech: ['Python'], alsoUsing: ['Docker'] },
-  { year: '2018', tech: ['AWS'], alsoUsing: ['CDK'] },
-  { year: '2019', tech: ['Javascript'],alsoUsing: ['Angular']  },
-  { year: '2020', tech: ['Splunk'],alsoUsing: ['Typescript']  },
-  { year: '2021', tech: ['Jenkins'], alsoUsing: ['React'] },
-  { year: '2022', tech: ['Next.js'], alsoUsing: ['Webpack'] },
-  { year: '2023', tech: ['Vite'], alsoUsing: ['GraphQL'] },
-  { year: '2024', tech: ['Web Platform'], alsoUsing: ['MFE']  },
-  { year: '2025', tech: ['AI']},
+export const phases: Phase[] = [
+  {
+    id: 'backend',
+    label: 'Backend',
+    yearRange: 'Years 0-4',
+    yearStart: 2016,
+    yearEnd: 2020,
+    focus: 'Heavy backend development and distributed services.',
+    tech: ['Java', 'Spring Boot'],
+  },
+  {
+    id: 'fullstack',
+    label: 'Full-stack',
+    yearRange: 'Years 4-6',
+    yearStart: 2020,
+    yearEnd: 2022,
+    focus: 'Full-stack delivery, picked up the frontend layer end-to-end.',
+    tech: ['Java', 'Angular'],
+  },
+  {
+    id: 'frontend',
+    label: 'Frontend',
+    yearRange: 'Years 6-8',
+    yearStart: 2022,
+    yearEnd: 2024,
+    focus: 'Pure frontend depth across modern React.',
+    tech: ['React', 'JavaScript', 'TypeScript'],
+  },
+  {
+    id: 'platform',
+    label: 'Platform Lead',
+    yearRange: 'Years 8-10+',
+    yearStart: 2024,
+    yearEnd: 2026,
+    focus: 'Architectural direction across teams, still hands-on full-stack.',
+    tech: ['Web platform', 'Architecture', 'Cross-team'],
+  },
 ];
 
-/** Lowest year shown on the master line. */
-export const TIMELINE_MIN_YEAR = 2014;
-
-/** Highest year shown on the master line. */
-export const TIMELINE_MAX_YEAR = 2026;
+export const constants = {
+  label: 'Constants across 10+ years',
+  items: ['AWS infrastructure', 'CI/CD', 'Testing (unit + E2E)', 'Observability'],
+};
