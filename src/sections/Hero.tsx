@@ -1,7 +1,6 @@
 import { Fragment } from 'react';
 import { motion, useReducedMotion, type Variants } from 'motion/react';
 import { profile } from '../data/profile';
-import { useDecodeReveal } from '../hooks/useDecodeReveal';
 import styles from './Hero.module.css';
 
 /**
@@ -67,12 +66,6 @@ const ctaTap = { scale: 0.97 };
 
 export default function Hero() {
   const reducedMotion = useReducedMotion();
-  // Decode-scramble the name on mount; runs in parallel with Motion's
-  // stagger so by the time pitch + CTAs animate in, the name is locked.
-  const decodedName = useDecodeReveal(profile.name, {
-    duration: reducedMotion ? 0 : 900,
-    delay: reducedMotion ? 0 : 350,
-  });
 
   return (
     <section id="top" className={styles.hero}>
@@ -87,30 +80,25 @@ export default function Hero() {
           <span className={styles.statusText}>{renderStatus(profile.status)}</span>
         </motion.div>
 
-        <motion.h1 className={styles.title} variants={itemVariants}>
+        <motion.h1
+          className={styles.name}
+          variants={itemVariants}
+        >
           <motion.a
-            className={styles.handle}
+            className={styles.nameLink}
             href={profile.linkedin}
             target="_blank"
             rel="noreferrer noopener"
-            aria-label={`${profile.handle} on LinkedIn — opens in a new tab`}
+            aria-label={`${profile.name} on LinkedIn — opens in a new tab`}
             whileHover={reducedMotion ? undefined : { x: 2 }}
             transition={{ type: 'spring', stiffness: 400, damping: 22 }}
           >
-            {profile.handle}
-            <span className={styles.handleArrow} aria-hidden="true">
+            {profile.name}
+            <span className={styles.nameArrow} aria-hidden="true">
               ↗
             </span>
           </motion.a>
         </motion.h1>
-
-        <motion.h2
-          className={styles.name}
-          variants={itemVariants}
-          aria-label={profile.name}
-        >
-          {decodedName}
-        </motion.h2>
 
         <motion.p
           className={styles.pitch}

@@ -66,51 +66,43 @@
   color: var(--fg-dim);
 }
 
-.title {
-  margin: 0;
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  color: var(--fg-mute);
-  font-weight: 500;
-  letter-spacing: 0;
-}
-
-.handle {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  border-bottom: 1px solid transparent;
-  transition: border-color var(--dur-fast) var(--ease);
-}
-
-.handle:hover {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
-
-.handleArrow {
-  font-size: 0.8em;
-  color: var(--fg-mute);
-  transition: color var(--dur-fast) var(--ease);
-}
-
-.handle:hover .handleArrow {
-  color: var(--accent);
-}
-
 .name {
   margin: 0;
   font-size: clamp(2.6rem, 8vw, 5.2rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.02;
+}
+
+.nameLink {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.18em;
+  text-decoration: none;
   background: linear-gradient(180deg, var(--fg) 0%, var(--fg-dim) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  transition: background var(--dur-fast) var(--ease);
+}
+
+.nameLink:hover {
+  background: linear-gradient(180deg, var(--accent) 0%, var(--fg) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.nameArrow {
+  font-size: 0.4em;
+  font-weight: 500;
+  color: var(--fg-mute);
+  transition: color var(--dur-fast) var(--ease);
+  -webkit-text-fill-color: var(--fg-mute);
+}
+
+.nameLink:hover .nameArrow {
+  color: var(--accent);
+  -webkit-text-fill-color: var(--accent);
 }
 
 .pitch {
