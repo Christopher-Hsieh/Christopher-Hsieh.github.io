@@ -65,10 +65,44 @@
   color: var(--accent);
 }
 
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+}
+
 .links {
   display: flex;
   align-items: center;
   gap: var(--s-5);
+}
+
+.resume {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  transition:
+    color var(--dur-fast) var(--ease),
+    border-color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease);
+}
+
+.resume:hover {
+  color: #000;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.resumeIcon {
+  font-size: 0.95em;
+  line-height: 1;
+  transform: translateY(-1px);
 }
 
 .link {
@@ -114,6 +148,9 @@
 }
 
 @media (max-width: 720px) {
+  .right {
+    gap: var(--s-3);
+  }
   .links {
     gap: var(--s-3);
   }
@@ -125,6 +162,18 @@
      prioritizes about / work / skills / contact on mobile. */
   .link:nth-child(4),
   .link:nth-child(6) {
+    display: none;
+  }
+  .resume {
+    padding: 5px 11px;
+    font-size: 0.74rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Squeeze further on phones: drop the section nav and let the resume
+     button + brand carry the nav by themselves. */
+  .links {
     display: none;
   }
 }

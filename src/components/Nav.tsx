@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
+import { profile } from '../data/profile';
 import styles from './Nav.module.css';
 
 const links = [
@@ -59,18 +60,32 @@ export default function Nav() {
           cjh
           <span className={styles.bracket}>{'/>'}</span>
         </a>
-        <nav className={styles.links} aria-label="Primary">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={`${styles.link} ${active === l.href ? styles.active : ''}`}
-            >
-              <span className={styles.slash}>//</span>
-              {l.label}
-            </a>
-          ))}
-        </nav>
+        <div className={styles.right}>
+          <nav className={styles.links} aria-label="Primary">
+            {links.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`${styles.link} ${active === l.href ? styles.active : ''}`}
+              >
+                <span className={styles.slash}>//</span>
+                {l.label}
+              </a>
+            ))}
+          </nav>
+          <a
+            className={styles.resume}
+            href={`${profile.resume.href}?v=${profile.resume.updated}`}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label={`Download resume (PDF, updated ${profile.resume.updated}, opens in a new tab)`}
+          >
+            <span className={styles.resumeIcon} aria-hidden="true">
+              ↓
+            </span>
+            resume
+          </a>
+        </div>
       </div>
       <motion.div
         className={styles.progress}
