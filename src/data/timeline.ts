@@ -21,7 +21,7 @@ export const phases: Phase[] = [
     yearStart: 2016,
     yearEnd: 2020,
     focus: 'Heavy backend development and distributed services.',
-    tech: ['Java', 'Spring Boot'],
+    tech: ['Java', 'Spring Boot', 'Python'],
   },
   {
     id: 'fullstack',
