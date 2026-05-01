@@ -1,7 +1,12 @@
 import { lazy, Suspense } from 'react';
 import SectionLabel from '../components/SectionLabel';
 import Tag from '../components/Tag';
-import { work, type WorkItem, type VideoRef } from '../data/work';
+import {
+  work,
+  platformsLed,
+  type WorkItem,
+  type VideoRef,
+} from '../data/work';
 import { useInView } from '../hooks/useInView';
 import styles from './Work.module.css';
 
@@ -154,6 +159,48 @@ function CardBody({ w }: { w: WorkItem }) {
   );
 }
 
+function WorkCard({ w }: { w: WorkItem }) {
+  return (
+    <article className={styles.card}>
+      <header className={styles.cardHead}>
+        <div>
+          <div className={styles.cardCompany}>
+            {w.company}
+            {w.year && (
+              <>
+                <span className={styles.cardCompanyDot} aria-hidden="true">
+                  {' · '}
+                </span>
+                <span className={styles.cardYear}>{w.year}</span>
+              </>
+            )}
+          </div>
+          <h3 className={styles.cardTitle}>{w.title}</h3>
+        </div>
+        {w.link && (
+          <a
+            className={styles.cardLink}
+            href={w.link.href}
+            target="_blank"
+            rel="noreferrer noopener"
+          >
+            {w.link.label}
+            <span aria-hidden="true">↗</span>
+          </a>
+        )}
+      </header>
+      <CardBody w={w} />
+      {w.demoId && (
+        <div className={styles.demo}>
+          <Suspense fallback={<DemoFallback />}>
+            <DemoFor id={w.demoId} />
+          </Suspense>
+        </div>
+      )}
+    </article>
+  );
+}
+
 export default function Work() {
   const { ref, inView } = useInView<HTMLDivElement>();
 
@@ -164,45 +211,31 @@ export default function Work() {
         className={`container fadeIn ${inView ? 'isVisible' : ''}`}
       >
         <SectionLabel label="work" />
-        <h2 className={styles.heading}>
-          Live demos of things I&apos;ve shipped.
-        </h2>
+        <h2 className={styles.heading}>Platforms I&apos;ve led.</h2>
         <p className={styles.subhead}>
-          Real systems are behind logins, paywalls, or VPNs — so the cards below include
-          screenshots, recordings, and small interactive mocks that mirror what I led,
-          plus deep links to the live property where applicable.
+          Cross-team platform work that isn&apos;t a public URL — architectural
+          direction, internal systems, and the standards teams ship against.
         </p>
 
         <div className={styles.cards}>
-          {work.map((w) => (
-            <article key={w.id} className={styles.card}>
-              <header className={styles.cardHead}>
-                <div>
-                  <div className={styles.cardCompany}>{w.company}</div>
-                  <h3 className={styles.cardTitle}>{w.title}</h3>
-                </div>
-                {w.link && (
-                  <a
-                    className={styles.cardLink}
-                    href={w.link.href}
-                    target="_blank"
-                    rel="noreferrer noopener"
-                  >
-                    {w.link.label}
-                    <span aria-hidden="true">↗</span>
-                  </a>
-                )}
-              </header>
-              <CardBody w={w} />
-              {w.demoId && (
-                <div className={styles.demo}>
-                  <Suspense fallback={<DemoFallback />}>
-                    <DemoFor id={w.demoId} />
-                  </Suspense>
-                </div>
-              )}
-            </article>
+          {platformsLed.map((w) => (
+            <WorkCard key={w.id} w={w} />
           ))}
+        </div>
+
+        <div className={styles.subBlock}>
+          <h2 className={styles.heading}>
+            Live demos of things I&apos;ve shipped.
+          </h2>
+          <p className={styles.subhead}>
+            Real systems are behind logins — so the cards below include recordings, and links to see it live where properly applicable.
+          </p>
+
+          <div className={styles.cards}>
+            {work.map((w) => (
+              <WorkCard key={w.id} w={w} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -14,6 +14,14 @@
   gap: var(--s-6);
 }
 
+/* Spacing for whichever sub-section comes second under the // work
+   SectionLabel (currently the live-demo cards). Generous top margin so
+   the new heading reads as its own beat rather than continuing the
+   previous block. */
+.subBlock {
+  margin-top: var(--s-7);
+}
+
 .card {
   background: var(--bg-elev);
   border: 1px solid var(--border);
@@ -65,6 +73,14 @@
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-bottom: 4px;
+}
+
+.cardCompanyDot {
+  color: var(--fg-mute);
+}
+
+.cardYear {
+  color: var(--fg-mute);
 }
 
 .cardTitle {

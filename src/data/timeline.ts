@@ -26,7 +26,7 @@ export const phases: Phase[] = [
   {
     id: 'fullstack',
     label: 'Full-stack',
-    yearRange: 'Years 4-5',
+    yearRange: 'Years 4-6',
     yearStart: 2020,
     yearEnd: 2022,
     focus: 'Full-stack delivery, picked up the frontend layer end-to-end.',
@@ -35,7 +35,7 @@ export const phases: Phase[] = [
   {
     id: 'frontend',
     label: 'Frontend',
-    yearRange: 'Years 6-7',
+    yearRange: 'Years 7-8',
     yearStart: 2022,
     yearEnd: 2024,
     focus: 'Pure frontend depth across modern React.',
