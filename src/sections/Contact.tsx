@@ -19,13 +19,26 @@ export default function Contact() {
         </h2>
         <p className={styles.subhead}>
           {profile.status}. The fastest way to reach me is email — or LinkedIn if you
-          prefer.
+          prefer. My number&apos;s on the resume; feel free to text or call.
         </p>
 
         <div className={styles.grid}>
           <a className={styles.card} href={`mailto:${profile.email}`}>
             <div className={styles.cardLabel}>// email</div>
             <div className={styles.cardValue}>{profile.email}</div>
+            <div className={styles.cardArrow} aria-hidden="true">
+              ↗
+            </div>
+          </a>
+          <a
+            className={styles.card}
+            href={`${profile.resume.href}?v=${profile.resume.updated}`}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label={`Download resume (PDF, updated ${profile.resume.updated}, opens in a new tab)`}
+          >
+            <div className={styles.cardLabel}>// resume</div>
+            <div className={styles.cardValue}>christopher-hsieh-resume.pdf</div>
             <div className={styles.cardArrow} aria-hidden="true">
               ↗
             </div>

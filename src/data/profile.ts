@@ -9,8 +9,15 @@ export const profile = {
   phone: '(574) 514-4447',
   linkedin: 'https://www.linkedin.com/in/christopher-j-hsieh',
   github: 'https://github.com/Christopher-Hsieh',
+  // Stable filename → shareable URL never changes. To update: replace
+  // `public/christopher-hsieh-resume.pdf` and bump `updated`. The `?v=`
+  // query string in the Nav link uses `updated` to bust browser/CDN cache.
+  resume: {
+    href: '/christopher-hsieh-resume.pdf',
+    updated: '2026-05',
+  },
   pitch:
-    'Engineering leader with 10+ years shipping web applications across teams, orgs, & disciplines. Greenfield to production at Nike, Liberty Mutual — micro frontends, platforms, and the people who ship them.',
+    'Engineering leader with 10+ years shipping applications successfully across teams, orgs, & disciplines. Greenfield to production at Nike, Liberty Mutual — distributed scalable backends, web platforms, and quality collab with people who ship them.',
   summary: [
     'I build and scale web applications by partnering across teams and orgs — most recently at Nike where I owned platform-wide internal initiatives and high-traffic surfaces like Nike.com.',
     'An MBA-trained engineer focused on the cross-functional work it takes to  ship — partnering with design, product, and engineering teams to make great software.',
