@@ -48,7 +48,7 @@ SmartTemps LLC., Mishawaka, IN	Software Engineer Intern	2014
 
 TECHNICAL SKILLS
 Languages: TypeScript, JavaScript, Java, Python — plus deep CS roots in C, C++, and Fortran.
-Frontend: React, Next.js, Vite, Webpack, Angular, Web APIs — accessibility (WCAG), CSS architecture, responsive design, design systems, component libraries.
+Frontend: React, Next.js, Vite, Webpack, Angular, Web APIs, Redux, state management — accessibility (WCAG), CSS architecture, responsive design, design systems, component libraries.
 Testing: Jest, React Testing Library, Playwright, Vitest, JUnit.
 Architecture & Platform: Micro-frontends, design systems, monorepos, module federation, serverless distributed systems, event-driven architectures, cross-team CI/CD patterns, web platform strategy.
 Backend & APIs: Spring, Spring Boot, Maven, REST, GraphQL, HATEOAS, Node.js.

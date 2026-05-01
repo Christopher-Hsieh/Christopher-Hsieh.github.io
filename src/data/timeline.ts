@@ -20,13 +20,13 @@ export const phases: Phase[] = [
     yearRange: 'Years 0-4',
     yearStart: 2016,
     yearEnd: 2020,
-    focus: 'Heavy backend development and distributed services.',
+    focus: 'Heavy backend development across Java services and early Python analytics.',
     tech: ['Java', 'Spring Boot', 'Python'],
   },
   {
     id: 'fullstack',
     label: 'Full-stack',
-    yearRange: 'Years 4-6',
+    yearRange: 'Years 4-5',
     yearStart: 2020,
     yearEnd: 2022,
     focus: 'Full-stack delivery, picked up the frontend layer end-to-end.',
@@ -35,7 +35,7 @@ export const phases: Phase[] = [
   {
     id: 'frontend',
     label: 'Frontend',
-    yearRange: 'Years 6-8',
+    yearRange: 'Years 6-7',
     yearStart: 2022,
     yearEnd: 2024,
     focus: 'Pure frontend depth across modern React.',
@@ -43,7 +43,7 @@ export const phases: Phase[] = [
   },
   {
     id: 'platform',
-    label: 'Platform Lead',
+    label: 'Full-stack Platform Lead',
     yearRange: 'Years 8-10+',
     yearStart: 2024,
     yearEnd: 2026,

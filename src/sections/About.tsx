@@ -27,13 +27,15 @@ function renderWithAccents(text: string) {
 }
 
 /**
- * Build a CSS `grid-template-columns` string where each column is sized in
- * proportion to the number of years its phase spans. A 4-year phase gets
- * `4fr`, a 2-year phase gets `2fr`. The visual width of each band then
- * literally encodes how long the user spent in that discipline.
+ * Build a CSS `grid-template-columns` string. Past phases get equal weight;
+ * the current (rightmost) phase gets a visual emphasis bump so the eye
+ * naturally lands on the most recent / current role rather than anchoring
+ * on the longest-tenured discipline from years ago.
  */
 function buildGridTemplate() {
-  return phases.map((p) => `${p.yearEnd - p.yearStart}fr`).join(' ');
+  return phases
+    .map((_, i) => (i === phases.length - 1 ? '3fr' : '2fr'))
+    .join(' ');
 }
 
 function DisciplineArcHorizontal() {
@@ -117,6 +119,12 @@ function ConstantsFooter() {
           <Tag key={item}>{item}</Tag>
         ))}
       </div>
+      <a className={styles.constantsLink} href="#skills">
+        and more
+        <span className={styles.constantsLinkArrow} aria-hidden="true">
+          →
+        </span>
+      </a>
     </div>
   );
 }

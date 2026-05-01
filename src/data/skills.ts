@@ -19,6 +19,8 @@ export const skills: SkillGroup[] = [
       'Webpack',
       'Angular',
       'Web APIs',
+      'Redux',
+      'State management',
       'Accessibility (WCAG)',
       'CSS architecture',
       'Responsive design',

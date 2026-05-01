@@ -10,6 +10,8 @@
   border-radius: 999px;
   line-height: 1.2;
   white-space: nowrap;
+  /* Strip underline for the anchor variant; harmless for spans. */
+  text-decoration: none;
   transition:
     color var(--dur-fast) var(--ease),
     border-color var(--dur-fast) var(--ease),
