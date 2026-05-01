@@ -31,7 +31,6 @@ export default function Experience() {
               location={item.location}
               roles={item.roles}
               bullets={item.bullets}
-              tags={item.tags}
             />
           ))}
         </div>

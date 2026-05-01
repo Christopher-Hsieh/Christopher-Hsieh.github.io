@@ -1,4 +1,3 @@
-import Tag from './Tag';
 import styles from './TimelineItem.module.css';
 
 export type Role = {
@@ -11,7 +10,6 @@ type Props = {
   location: string;
   roles: Role[];
   bullets: string[];
-  tags?: string[];
 };
 
 export default function TimelineItem({
@@ -19,7 +17,6 @@ export default function TimelineItem({
   location,
   roles,
   bullets,
-  tags,
 }: Props) {
   return (
     <article className={styles.item}>
@@ -49,13 +46,6 @@ export default function TimelineItem({
             </li>
           ))}
         </ul>
-        {tags && tags.length > 0 && (
-          <div className={styles.tags}>
-            {tags.map((t) => (
-              <Tag key={t}>{t}</Tag>
-            ))}
-          </div>
-        )}
       </div>
     </article>
   );
