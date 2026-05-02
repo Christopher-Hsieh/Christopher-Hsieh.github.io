@@ -118,6 +118,67 @@ function LiveLinks({ links }: { links: NonNullable<WorkItem['liveLinks']> }) {
   );
 }
 
+/**
+ * Render a single bullet, splitting on the first em-dash so the text
+ * before it reads as the headline (WHAT) and the text after as a smaller
+ * indented sub-line (WHY). Bullets without an em-dash render as a flat
+ * single line, unchanged.
+ */
+function CardBulletItem({ text }: { text: string }) {
+  const idx = text.indexOf('\u2014');
+  if (idx === -1) {
+    return <li className={styles.cardBullet}>{text}</li>;
+  }
+  const what = text.slice(0, idx).trimEnd();
+  const why = text.slice(idx + 1).trimStart();
+  return (
+    <li className={styles.cardBullet}>
+      {what}
+      <span className={styles.cardBulletWhy}>{why}</span>
+    </li>
+  );
+}
+
+function Bullets({ items }: { items: string[] }) {
+  return (
+    <ul className={styles.cardBullets}>
+      {items.map((b, i) => (
+        <CardBulletItem key={i} text={b} />
+      ))}
+    </ul>
+  );
+}
+
+function TrailingBullets({
+  label,
+  items,
+}: {
+  label: string;
+  items: string[];
+}) {
+  return (
+    <div className={styles.cardBulletsTrailing}>
+      <div className={styles.cardBulletsTrailingLabel}>{label}</div>
+      <ul className={styles.cardBullets}>
+        {items.map((b, i) => (
+          <CardBulletItem key={i} text={b} />
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function Tags({ items }: { items?: string[] }) {
+  if (!items || items.length === 0) return null;
+  return (
+    <div className={styles.tags}>
+      {items.map((t) => (
+        <Tag key={t}>{t}</Tag>
+      ))}
+    </div>
+  );
+}
+
 function CardBody({ w }: { w: WorkItem }) {
   const videos = w.videos ?? [];
   const sideBySide = videos.length === 1;
@@ -128,11 +189,14 @@ function CardBody({ w }: { w: WorkItem }) {
       <div className={styles.split}>
         <div className={styles.splitLeft}>
           <p className={styles.cardBlurb}>{w.blurb}</p>
-          <div className={styles.tags}>
-            {w.tags.map((t) => (
-              <Tag key={t}>{t}</Tag>
-            ))}
-          </div>
+          {w.bullets && <Bullets items={w.bullets} />}
+          {w.trailingBullets && (
+            <TrailingBullets
+              label={w.trailingBullets.label}
+              items={w.trailingBullets.items}
+            />
+          )}
+          <Tags items={w.tags} />
           {w.screenshot && <Screenshot shot={w.screenshot} />}
           {w.liveLinks && <LiveLinks links={w.liveLinks} />}
         </div>
@@ -147,11 +211,14 @@ function CardBody({ w }: { w: WorkItem }) {
   return (
     <>
       <p className={styles.cardBlurb}>{w.blurb}</p>
-      <div className={styles.tags}>
-        {w.tags.map((t) => (
-          <Tag key={t}>{t}</Tag>
-        ))}
-      </div>
+      {w.bullets && <Bullets items={w.bullets} />}
+      {w.trailingBullets && (
+        <TrailingBullets
+          label={w.trailingBullets.label}
+          items={w.trailingBullets.items}
+        />
+      )}
+      <Tags items={w.tags} />
       {w.screenshot && <Screenshot shot={w.screenshot} />}
       {w.liveLinks && <LiveLinks links={w.liveLinks} />}
       {videos.length >= 2 && <VideoRow videos={videos} />}
@@ -213,8 +280,8 @@ export default function Work() {
         <SectionLabel label="work" />
         <h2 className={styles.heading}>Platforms I&apos;ve led.</h2>
         <p className={styles.subhead}>
-          Cross-team platform work that isn&apos;t a public URL — architectural
-          direction, internal systems, and the standards teams ship against.
+          Cross-team platform work — architectural direction, internal systems, 
+          and the standards teams ship against.
         </p>
 
         <div className={styles.cards}>

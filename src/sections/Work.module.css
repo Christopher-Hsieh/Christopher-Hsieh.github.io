@@ -112,7 +112,83 @@
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: var(--s-4);
-  max-width: 760px;
+  /* Caps line length for scanability without feeling cramped on wide cards. */
+  max-width: 920px;
+  /* Honor `\n` and `\n\n` in the source string as line / paragraph breaks
+     while still collapsing other whitespace normally. */
+  white-space: pre-line;
+}
+
+/* Highlight bullets — same accent-arrow marker as the Experience timeline,
+   sized up slightly to match the Work card's larger blurb font. */
+.cardBullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--s-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  max-width: 920px;
+}
+
+.cardBullet {
+  position: relative;
+  padding-left: 22px;
+  color: var(--fg-dim);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.cardBullet::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+/* Sub-line rendered for the "why" half of a "WHAT — WHY" bullet. Sits
+   below the headline as a slightly smaller, more muted continuation. */
+.cardBulletWhy {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.9rem;
+  color: var(--fg-mute);
+  line-height: 1.5;
+}
+
+.cardBulletWhy::before {
+  content: '— ';
+  color: var(--fg-mute);
+}
+
+/* Trailing bullet group: items that apply universally across the bullets
+   above. Sits with extra top spacing and a small mono label so it reads
+   as a continuation, not a new accomplishment. */
+.cardBulletsTrailing {
+  margin-top: var(--s-4);
+  margin-bottom: var(--s-4);
+}
+
+.cardBulletsTrailingLabel {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+  text-transform: lowercase;
+  margin-bottom: var(--s-3);
+}
+
+.cardBulletsTrailingLabel::before {
+  content: '// ';
+  color: var(--fg-mute);
+}
+
+/* The nested ul inside .cardBulletsTrailing reuses .cardBullets, so we
+   strip its bottom margin since the wrapper handles spacing now. */
+.cardBulletsTrailing .cardBullets {
+  margin-bottom: 0;
 }
 
 .tags {

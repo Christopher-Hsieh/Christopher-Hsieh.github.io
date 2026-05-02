@@ -17,7 +17,18 @@ export type WorkItem = {
   /** Year or year-range (e.g. "2024", "2025-2026") shown inline with company. */
   year?: string;
   blurb: string;
-  tags: string[];
+  /** Optional bulleted highlights rendered after the blurb (paired with the
+   *  same accent-arrow marker as the Experience timeline). */
+  bullets?: string[];
+  /** Optional trailing bullet group rendered after `bullets`, with a small
+   *  mono label header above (e.g. "across every team"). Use for items
+   *  that apply universally to all of the bullets above rather than as
+   *  standalone accomplishments. */
+  trailingBullets?: {
+    label: string;
+    items: string[];
+  };
+  tags?: string[];
   link?: { label: string; href: string };
   screenshot?: {
     src: string;
@@ -40,6 +51,34 @@ export type WorkItem = {
  * bottom as the pre-Nike anchor.
  */
 export const work: WorkItem[] = [
+  {
+    id: 'async-chat',
+    title: 'Async Chat \u2014 Nike.com',
+    company: 'Nike',
+    year: '2025',
+    blurb:
+      'As lead of the Web Platform team, partnered cross-team with the Chat team to ship an async-chat micro-frontend that drops into every page on Nike.com. Helped them shape the component so it integrates with the site\u2019s MFE shell, ships independently of the host app, and lights up everywhere on deploy \u2014 one team owns the chat experience, every consumer surface picks it up. The clip on the right is the live experience on Nike.com \u2014 open nike.com/help and click \u201cChat with us\u201d to try it yourself.',
+    tags: [
+      'Web Platform Leadership',
+      'Micro Frontend',
+      'Async Chat',
+      'Cross-team',
+      'Site-wide rollout',
+    ],
+    videos: [
+      {
+        src: '/work/nike-chat.mp4',
+        caption: 'Live on nike.com \u2014 async chat MFE across the consumer experience',
+      },
+    ],
+    liveLinks: [
+      {
+        label: 'nike.com/help',
+        sublabel: 'Try it yourself \u00b7 click \u201cChat with us\u201d',
+        href: 'https://www.nike.com/help',
+      },
+    ],
+  },
   {
     id: 'ios-web-auth',
     title: 'Web \u2194 iOS Auth Bridge \u2014 Nike App',
@@ -188,29 +227,40 @@ export const platformsLed: WorkItem[] = [
     company: 'Nike',
     year: '2025-2026',
     blurb:
-      'A conceptual view of the platform powering retail-store operations. The result for store employees: one unified app to run a store \u2014 login, inventory lookup, customer assistance, transactions \u2014 with the same UX whether they pick it up on an in-store iOS device, a register browser, or a back-office desktop. I helped shape the overall architecture \u2014 a host shell composing independently-shipped feature modules through micro frontends, one design system, a shared routing model, and a build pipeline that emits the same app to every surface. I also contributed to the finer details: a unified auth handshake and token refresh strategy, a state management approach that lets modules stay isolated while coordinating through the host, and the observability and CI/CD patterns teams adopt as they onboard. Pick a target, mount a module, and explore the layout below.',
-    tags: [
-      'Micro Frontends',
-      'Host / Feature Teams',
-      'Web \u2192 iOS / Desktop',
-      'Shared Design System',
-      'Routing Strategy',
-      'CI/CD',
+      "Created and fostered high-level technical strategies for the platform powering Nike\u2019s retail-store operations. Each item below involved identifying needs, defining the path, partnering with business leadership, and delivering across multiple engineering teams. Retail Store Operations is everything needed to run a store: cash management, inventory, KPI reports, clocking-in and out, and more.",
+
+    bullets: [
+      'Standardize tech stack teams should use & create blueprint \u2014 teams share the same framework, package manager, languages, etc.',
+      'Create shared component library, styling baseline, visualization standards \u2014 teams can adopt and maintain a consistent look and feel.',
+      'Unify auth handshake, token refresh, and state-management approach \u2014 teams can support isolated modules while coordinating shared core functionality.',
+      'Observability integration and usage patterns \u2014 teams can instrument and use the same tools and patterns.',
+      'CI/CD templates and strategy for frontend applications \u2014 teams can ship much quicker without rebuilding the same layer.',
+      'Testing patterns and e2e testing strategy for unified experiences \u2014 teams can test their code and ensure it works as expected.',
     ],
+    trailingBullets: {
+      label: 'Across every team',
+      items: [
+        'Defined processes for teams to contribute and maintain; evangelized adoption across teams.',
+        'Migration guide for existing applications and a clear path for new applications to build against.',
+      ],
+    },
   },
   {
     id: 'nike-platform',
     title: 'Nike.com Web Platform',
     company: 'Nike',
-    year: '2024-2026',
+    year: '2024-2025',
     blurb:
-      'Lead web platform direction across Nike.com \u2014 cross-team standards, architectural calls, partnering with business leadership on emerging-tech initiatives, and the upgrade paths that let other teams ship faster on consumer surfaces seen by millions daily.',
-    tags: [
-      'Web Platform Leadership',
-      'Cross-team',
-      'Architecture',
-      'Strategy',
-      'Standards',
+      'Lead web platform engineer for Nike.com, major accomplishments below.\nAll work included backwards compatibility, creating paths to migrate to new technologies, and driving cross-team coordination.',
+    bullets: [
+      'Re-wrote the platform\u2019s Micro-Frontend component improving performance and maintainability.',
+      'Delivered a new unified auth strategy (see it live in Web \u2194 iOS Auth Bridge below).',
+      'Integrated Async Chat experience usable across Nike.com (see it live in Async Chat below).',
+      'Migration to the latest web technologies for React, Next.js, and more while managing critical dependencies.'
     ],
+    trailingBullets: {
+      label: 'All work included backwards compatibility, creating paths to migrate to new technologies, and driving cross-team coordination.',
+      items: [],
+    },
   },
 ];
