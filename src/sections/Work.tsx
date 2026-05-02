@@ -378,7 +378,7 @@ export default function Work() {
           ))}
         </div>
 
-        <div className={styles.subBlock}>
+        <div id="live-demos" className={styles.subBlock}>
           <h2 className={styles.heading}>
             Live demos of things I&apos;ve shipped.
           </h2>

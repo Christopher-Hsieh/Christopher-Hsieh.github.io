@@ -117,7 +117,7 @@ export default function Hero() {
           transition={{ delay: 1.2 }}
         >
           <motion.a
-            href="#work"
+            href="#live-demos"
             className={styles.ctaPrimary}
             whileHover={reducedMotion ? undefined : ctaHover}
             whileTap={reducedMotion ? undefined : ctaTap}
