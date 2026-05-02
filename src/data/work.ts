@@ -66,7 +66,7 @@ export const work: WorkItem[] = [
     company: 'Nike',
     year: '2025',
     blurb:
-      'As lead of the Web Platform team, partnered cross-team with the Chat team to ship an async-chat micro-frontend that drops into every page on Nike.com. Helped them shape the component so it integrates with the site\u2019s MFE shell, ships independently of the host app, and lights up everywhere on deploy \u2014 one team owns the chat experience, every consumer surface picks it up. The clip on the right is the live experience on Nike.com \u2014 open nike.com/help and click \u201cChat with us\u201d to try it yourself.',
+      'As lead of the Web Platform team, partnered cross-team to ship an async-chat micro-frontend that drops into every page on Nike.com. Helped shape the component so it integrates with the site\u2019s shell, ships independently, and lights up everywhere on deploy. One team owns the chat experience, every consumer surface picks it up. The clip is the live experience on Nike.com \u2014 open nike.com/help and click \u201cChat with us\u201d to try it yourself.',
     tags: [
       'Web Platform Leadership',
       'Micro Frontend',
@@ -94,7 +94,7 @@ export const work: WorkItem[] = [
     company: 'Nike',
     year: '2025',
     blurb:
-      'As lead of the Web Platform team, partnered cross-team with iOS engineers to build a JavaScript bridge so the Nike app could embed our web login portal inside an ASWebAuthenticationSession. One source of truth for sign-in UI, one team owning the auth flow, an identical experience across web and iOS \u2014 and any change to the web login lights up on mobile the moment it deploys. The clip on the right is the live Nike iOS app: tap Sign In \u2192 ASWebAuthenticationSession \u2192 the same web portal that powers nike.com.',
+      'As lead of the Web Platform team, partnered cross-team with iOS engineers to build a JavaScript bridge so the Nike app could embed our web login portal inside an ASWebAuthenticationSession. One source of truth for sign-in UI, one team owning the auth flow, an identical experience across web and iOS. The clip is the live experience in the Nike app \u2014 Download the app from the App Store and tap \u201cSign In\u201d to see it yourself.',
     tags: [
       'Web Platform Leadership',
       'iOS \u2194 Web JS Bridge',

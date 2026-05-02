@@ -202,6 +202,126 @@
   margin-bottom: 0;
 }
 
+/* ---------------- Collapsible bullets (platform cards) ----------------
+   Cards in the "Platforms I've led" section ship their highlights behind
+   a click-to-expand affordance so the section stays slim by default —
+   recruiters skim the blurb + tags above the fold and reach the live
+   demos faster, but can opt into the full detail if they want depth. */
+
+.bulletsDetails {
+  margin-bottom: var(--s-4);
+  max-width: 920px;
+}
+
+.bulletsSummary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--bg-elev-2);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  color: var(--fg-dim);
+  user-select: none;
+  transition:
+    border-color var(--dur-fast) var(--ease),
+    color var(--dur-fast) var(--ease),
+    background var(--dur-fast) var(--ease);
+}
+
+/* Strip the default disclosure triangle so we can render our own. */
+.bulletsSummary::-webkit-details-marker {
+  display: none;
+}
+.bulletsSummary::marker {
+  display: none;
+  content: '';
+}
+
+.bulletsSummary:hover,
+.bulletsSummary:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: linear-gradient(180deg, var(--bg-elev-2) 0%, rgba(184, 219, 217, 0.06) 100%);
+  outline: none;
+}
+
+.bulletsSummaryChevron {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 0.85rem;
+  line-height: 1;
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.bulletsDetails[open] .bulletsSummaryChevron {
+  transform: rotate(90deg);
+}
+
+.bulletsSummaryLabel {
+  font-weight: 500;
+}
+
+.bulletsSummaryHint {
+  color: var(--fg-mute);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
+.bulletsSummaryHint::before {
+  content: '· ';
+  color: var(--fg-mute);
+}
+
+/* Once expanded, drop the "click to expand" hint — the open content speaks for itself. */
+.bulletsDetails[open] .bulletsSummaryHint {
+  display: none;
+}
+
+.bulletsDetailsBody {
+  margin-top: var(--s-4);
+  /* Subtle top entrance when the details opens. Native <details> doesn't
+     animate height (without modern interpolate-size), so we just fade
+     the content in for a soft reveal. */
+  animation: bulletsReveal var(--dur-med) var(--ease);
+}
+
+/* Inner Bullets / TrailingBullets reuse their own classes, but inside the
+   collapsible wrapper we don't want their bottom margin compounding with
+   the wrapper's margin below. */
+.bulletsDetailsBody .cardBullets {
+  margin-bottom: 0;
+}
+
+.bulletsDetailsBody .cardBulletsTrailing {
+  margin-bottom: 0;
+}
+
+@keyframes bulletsReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bulletsDetailsBody {
+    animation: none;
+  }
+  .bulletsSummaryChevron {
+    transition: none;
+  }
+}
+
 .tags {
   display: flex;
   flex-wrap: wrap;

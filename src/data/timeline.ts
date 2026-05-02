@@ -43,7 +43,7 @@ export const phases: Phase[] = [
   },
   {
     id: 'platform',
-    label: 'Full-stack Platform Lead',
+    label: 'Platform Lead',
     yearRange: 'Years 8-10+',
     yearStart: 2024,
     yearEnd: 2026,

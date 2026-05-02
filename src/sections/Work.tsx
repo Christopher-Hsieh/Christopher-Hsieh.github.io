@@ -186,6 +186,54 @@ function TrailingBullets({
   );
 }
 
+/**
+ * Collapses the bullet block (and any trailing bullets) behind a small
+ * click-to-expand affordance. Default state is closed so the card stays
+ * slim — recruiters skimming see the blurb + tags + live links above the
+ * fold, and can opt in to read the highlights only if they want depth.
+ *
+ * Uses native <details>/<summary> so it works without JS state,
+ * supports keyboard + screen readers out of the box, and degrades
+ * gracefully if styles fail to load.
+ */
+function CollapsibleBullets({
+  bullets,
+  trailingBullets,
+  hideSubBullets,
+}: {
+  bullets?: string[];
+  trailingBullets?: WorkItem['trailingBullets'];
+  hideSubBullets?: boolean;
+}) {
+  const count = bullets?.length ?? 0;
+  if (count === 0 && !trailingBullets) return null;
+  return (
+    <details className={styles.bulletsDetails}>
+      <summary className={styles.bulletsSummary}>
+        <span className={styles.bulletsSummaryChevron} aria-hidden="true">
+          ▸
+        </span>
+        <span className={styles.bulletsSummaryLabel}>
+          Read the {count} highlights
+        </span>
+        <span className={styles.bulletsSummaryHint} aria-hidden="true">
+          click to expand
+        </span>
+      </summary>
+      <div className={styles.bulletsDetailsBody}>
+        {bullets && <Bullets items={bullets} hideSubBullets={hideSubBullets} />}
+        {trailingBullets && (
+          <TrailingBullets
+            label={trailingBullets.label}
+            items={trailingBullets.items}
+            hideSubBullets={hideSubBullets}
+          />
+        )}
+      </div>
+    </details>
+  );
+}
+
 function Tags({ items }: { items?: string[] }) {
   if (!items || items.length === 0) return null;
   return (
@@ -197,9 +245,36 @@ function Tags({ items }: { items?: string[] }) {
   );
 }
 
-function CardBody({ w }: { w: WorkItem }) {
+function CardBody({
+  w,
+  collapsibleBullets,
+}: {
+  w: WorkItem;
+  collapsibleBullets?: boolean;
+}) {
   const videos = w.videos ?? [];
   const sideBySide = videos.length === 1;
+
+  const bulletBlock = collapsibleBullets ? (
+    <CollapsibleBullets
+      bullets={w.bullets}
+      trailingBullets={w.trailingBullets}
+      hideSubBullets={w.hideSubBullets}
+    />
+  ) : (
+    <>
+      {w.bullets && (
+        <Bullets items={w.bullets} hideSubBullets={w.hideSubBullets} />
+      )}
+      {w.trailingBullets && (
+        <TrailingBullets
+          label={w.trailingBullets.label}
+          items={w.trailingBullets.items}
+          hideSubBullets={w.hideSubBullets}
+        />
+      )}
+    </>
+  );
 
   // 1 video → side-by-side (text left, single phone right)
   if (sideBySide) {
@@ -207,16 +282,7 @@ function CardBody({ w }: { w: WorkItem }) {
       <div className={styles.split}>
         <div className={styles.splitLeft}>
           <p className={styles.cardBlurb}>{w.blurb}</p>
-          {w.bullets && (
-            <Bullets items={w.bullets} hideSubBullets={w.hideSubBullets} />
-          )}
-          {w.trailingBullets && (
-            <TrailingBullets
-              label={w.trailingBullets.label}
-              items={w.trailingBullets.items}
-              hideSubBullets={w.hideSubBullets}
-            />
-          )}
+          {bulletBlock}
           <Tags items={w.tags} />
           {w.screenshot && <Screenshot shot={w.screenshot} />}
           {w.liveLinks && <LiveLinks links={w.liveLinks} />}
@@ -232,16 +298,7 @@ function CardBody({ w }: { w: WorkItem }) {
   return (
     <>
       <p className={styles.cardBlurb}>{w.blurb}</p>
-      {w.bullets && (
-        <Bullets items={w.bullets} hideSubBullets={w.hideSubBullets} />
-      )}
-      {w.trailingBullets && (
-        <TrailingBullets
-          label={w.trailingBullets.label}
-          items={w.trailingBullets.items}
-          hideSubBullets={w.hideSubBullets}
-        />
-      )}
+      {bulletBlock}
       <Tags items={w.tags} />
       {w.screenshot && <Screenshot shot={w.screenshot} />}
       {w.liveLinks && <LiveLinks links={w.liveLinks} />}
@@ -250,7 +307,13 @@ function CardBody({ w }: { w: WorkItem }) {
   );
 }
 
-function WorkCard({ w }: { w: WorkItem }) {
+function WorkCard({
+  w,
+  collapsibleBullets,
+}: {
+  w: WorkItem;
+  collapsibleBullets?: boolean;
+}) {
   return (
     <article className={styles.card}>
       <header className={styles.cardHead}>
@@ -281,7 +344,7 @@ function WorkCard({ w }: { w: WorkItem }) {
           </a>
         )}
       </header>
-      <CardBody w={w} />
+      <CardBody w={w} collapsibleBullets={collapsibleBullets} />
       {w.demoId && (
         <div className={styles.demo}>
           <Suspense fallback={<DemoFallback />}>
@@ -311,7 +374,7 @@ export default function Work() {
 
         <div className={styles.cards}>
           {platformsLed.map((w) => (
-            <WorkCard key={w.id} w={w} />
+            <WorkCard key={w.id} w={w} collapsibleBullets />
           ))}
         </div>
 
@@ -320,7 +383,7 @@ export default function Work() {
             Live demos of things I&apos;ve shipped.
           </h2>
           <p className={styles.subhead}>
-            Real systems are behind logins — so the cards below include recordings, and links to see it live where properly applicable.
+            Real systems are behind logins — so the cards below include recordings and links to see it live where properly applicable.
           </p>
 
           <div className={styles.cards}>
