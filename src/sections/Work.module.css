@@ -119,6 +119,17 @@
   white-space: pre-line;
 }
 
+/* Smaller, muted note that sits directly under the card title. Same look
+   as bullet sub-lines so context-asides read as quiet supporting text
+   and don't compete with the main blurb below. */
+.cardBlurbNote {
+  margin: 6px 0 0;
+  font-size: 0.9rem;
+  color: var(--fg-mute);
+  line-height: 1.5;
+  max-width: 920px;
+}
+
 /* Highlight bullets — same accent-arrow marker as the Experience timeline,
    sized up slightly to match the Work card's larger blurb font. */
 .cardBullets {

@@ -17,9 +17,18 @@ export type WorkItem = {
   /** Year or year-range (e.g. "2024", "2025-2026") shown inline with company. */
   year?: string;
   blurb: string;
+  /** Optional small note rendered directly below the blurb in a muted,
+   *  slightly smaller font \u2014 same look as bullet sub-lines. Use for
+   *  context-setting asides (definitions, scope notes) that shouldn't
+   *  compete with the main blurb prose. */
+  blurbNote?: string;
   /** Optional bulleted highlights rendered after the blurb (paired with the
    *  same accent-arrow marker as the Experience timeline). */
   bullets?: string[];
+  /** When true, suppresses the WHY sub-line that would normally render
+   *  below each bullet's em-dash. The em-dash content stays in the data
+   *  string so it can be re-enabled with a single flag flip. */
+  hideSubBullets?: boolean;
   /** Optional trailing bullet group rendered after `bullets`, with a small
    *  mono label header above (e.g. "across every team"). Use for items
    *  that apply universally to all of the bullets above rather than as
@@ -227,23 +236,27 @@ export const platformsLed: WorkItem[] = [
     company: 'Nike',
     year: '2025-2026',
     blurb:
-      "Created and fostered high-level technical strategies for the platform powering Nike\u2019s retail-store operations. Each item below involved identifying needs, defining the path, partnering with business leadership, and delivering across multiple engineering teams. Retail Store Operations is everything needed to run a store: cash management, inventory, KPI reports, clocking-in and out, and more.",
-
+      "Created and fostered high-level technical strategies to build the platform powering Nike\u2019s retail-store operations. Each item below involved identifying needs, defining the path, partnering with business leadership, and driving the work with multiple engineering teams.",
+    blurbNote:
+      'Store Operations is everything needed to run a store: cash management, inventory, metric reports, clocking-in and out, and more.',
+    hideSubBullets: true,
     bullets: [
-      'Standardize tech stack teams should use & create blueprint \u2014 teams share the same framework, package manager, languages, etc.',
-      'Create shared component library, styling baseline, visualization standards \u2014 teams can adopt and maintain a consistent look and feel.',
-      'Unify auth handshake, token refresh, and state-management approach \u2014 teams can support isolated modules while coordinating shared core functionality.',
-      'Observability integration and usage patterns \u2014 teams can instrument and use the same tools and patterns.',
-      'CI/CD templates and strategy for frontend applications \u2014 teams can ship much quicker without rebuilding the same layer.',
-      'Testing patterns and e2e testing strategy for unified experiences \u2014 teams can test their code and ensure it works as expected.',
+      'Standardize tech stack and create blueprint with AI assisted prompts for new applications. \u2014 teams share the same framework, package manager, languages, etc.',
+      'Create shared component library, styling baseline, visualization standards for graphs and charts. \u2014 teams can adopt and maintain a consistent look and feel.',
+      'Unify auth handshake and state-management approach across applications in shared experience. \u2014 teams can support isolated modules while coordinating shared core functionality.',
+      'Observability integration and usage patterns for instrumentation and monitoring. \u2014 teams can instrument and use the same tools and patterns.',
+      'CI/CD templates and AWS strategy for frontend applications to deploy quickly. \u2014 teams can ship much quicker without rebuilding the same layer.',
+      'E2E testing strategy for cross-team integrations in a unified experience. \u2014 teams can test their code and ensure it works as expected.',
+      'Defined processes for teams to contribute and maintain; Standards and guidelines.',
+      'Migration guide for existing applications and a clear path for new applications to build against.',
     ],
-    trailingBullets: {
-      label: 'Across every team',
-      items: [
-        'Defined processes for teams to contribute and maintain; evangelized adoption across teams.',
-        'Migration guide for existing applications and a clear path for new applications to build against.',
-      ],
-    },
+    // trailingBullets: {
+    //   label: 'Across every team',
+    //   items: [
+    //     'Defined processes for teams to contribute and maintain; Standards and guidelines.',
+    //     'Migration guide for existing applications and a clear path for new applications to build against.',
+    //   ],
+    // },
   },
   {
     id: 'nike-platform',

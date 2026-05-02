@@ -122,14 +122,24 @@ function LiveLinks({ links }: { links: NonNullable<WorkItem['liveLinks']> }) {
  * Render a single bullet, splitting on the first em-dash so the text
  * before it reads as the headline (WHAT) and the text after as a smaller
  * indented sub-line (WHY). Bullets without an em-dash render as a flat
- * single line, unchanged.
+ * single line. When `hideSubBullets` is true the WHY half is skipped
+ * even if an em-dash is present, leaving only the headline.
  */
-function CardBulletItem({ text }: { text: string }) {
+function CardBulletItem({
+  text,
+  hideSubBullets,
+}: {
+  text: string;
+  hideSubBullets?: boolean;
+}) {
   const idx = text.indexOf('\u2014');
   if (idx === -1) {
     return <li className={styles.cardBullet}>{text}</li>;
   }
   const what = text.slice(0, idx).trimEnd();
+  if (hideSubBullets) {
+    return <li className={styles.cardBullet}>{what}</li>;
+  }
   const why = text.slice(idx + 1).trimStart();
   return (
     <li className={styles.cardBullet}>
@@ -139,11 +149,17 @@ function CardBulletItem({ text }: { text: string }) {
   );
 }
 
-function Bullets({ items }: { items: string[] }) {
+function Bullets({
+  items,
+  hideSubBullets,
+}: {
+  items: string[];
+  hideSubBullets?: boolean;
+}) {
   return (
     <ul className={styles.cardBullets}>
       {items.map((b, i) => (
-        <CardBulletItem key={i} text={b} />
+        <CardBulletItem key={i} text={b} hideSubBullets={hideSubBullets} />
       ))}
     </ul>
   );
@@ -152,16 +168,18 @@ function Bullets({ items }: { items: string[] }) {
 function TrailingBullets({
   label,
   items,
+  hideSubBullets,
 }: {
   label: string;
   items: string[];
+  hideSubBullets?: boolean;
 }) {
   return (
     <div className={styles.cardBulletsTrailing}>
       <div className={styles.cardBulletsTrailingLabel}>{label}</div>
       <ul className={styles.cardBullets}>
         {items.map((b, i) => (
-          <CardBulletItem key={i} text={b} />
+          <CardBulletItem key={i} text={b} hideSubBullets={hideSubBullets} />
         ))}
       </ul>
     </div>
@@ -189,11 +207,14 @@ function CardBody({ w }: { w: WorkItem }) {
       <div className={styles.split}>
         <div className={styles.splitLeft}>
           <p className={styles.cardBlurb}>{w.blurb}</p>
-          {w.bullets && <Bullets items={w.bullets} />}
+          {w.bullets && (
+            <Bullets items={w.bullets} hideSubBullets={w.hideSubBullets} />
+          )}
           {w.trailingBullets && (
             <TrailingBullets
               label={w.trailingBullets.label}
               items={w.trailingBullets.items}
+              hideSubBullets={w.hideSubBullets}
             />
           )}
           <Tags items={w.tags} />
@@ -211,11 +232,14 @@ function CardBody({ w }: { w: WorkItem }) {
   return (
     <>
       <p className={styles.cardBlurb}>{w.blurb}</p>
-      {w.bullets && <Bullets items={w.bullets} />}
+      {w.bullets && (
+        <Bullets items={w.bullets} hideSubBullets={w.hideSubBullets} />
+      )}
       {w.trailingBullets && (
         <TrailingBullets
           label={w.trailingBullets.label}
           items={w.trailingBullets.items}
+          hideSubBullets={w.hideSubBullets}
         />
       )}
       <Tags items={w.tags} />
@@ -243,6 +267,7 @@ function WorkCard({ w }: { w: WorkItem }) {
             )}
           </div>
           <h3 className={styles.cardTitle}>{w.title}</h3>
+          {w.blurbNote && <p className={styles.cardBlurbNote}>{w.blurbNote}</p>}
         </div>
         {w.link && (
           <a
