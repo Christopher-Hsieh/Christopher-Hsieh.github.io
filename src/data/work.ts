@@ -236,7 +236,7 @@ export const platformsLed: WorkItem[] = [
     company: 'Nike',
     year: '2025-2026',
     blurb:
-      "Created and fostered high-level technical strategies to build the platform powering Nike\u2019s retail-store operations. Each item below involved identifying needs, defining the path, partnering with business leadership, and driving the work with multiple engineering teams.",
+      "Created and fostered high-level technical strategies. Each item below involved identifying needs, defining the path, partnering with business leadership, and driving the work with multiple engineering teams.",
     blurbNote:
       'Store Operations is everything needed to run a store: cash management, inventory, metric reports, clocking-in and out, and more.',
     hideSubBullets: true,
@@ -264,7 +264,7 @@ export const platformsLed: WorkItem[] = [
     company: 'Nike',
     year: '2024-2025',
     blurb:
-      'Lead web platform engineer for Nike.com, major accomplishments below.\nAll work included backwards compatibility, creating paths to migrate to new technologies, and driving cross-team coordination.',
+      'Lead web platform engineer for Nike.com, major accomplishments below.',
     bullets: [
       'Re-wrote the platform\u2019s Micro-Frontend component improving performance and maintainability.',
       'Delivered a new unified auth strategy (see it live in Web \u2194 iOS Auth Bridge below).',
