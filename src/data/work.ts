@@ -94,7 +94,7 @@ export const work: WorkItem[] = [
     company: 'Nike',
     year: '2025',
     blurb:
-      'As lead of the Web Platform team, partnered cross-team with iOS engineers to build a JavaScript bridge so the Nike app could embed our web login portal inside an ASWebAuthenticationSession. One source of truth for sign-in UI, one team owning the auth flow, an identical experience across web and iOS. The clip is the live experience in the Nike app \u2014 Download the app from the App Store and tap \u201cSign In\u201d to see it yourself.',
+      'Partnered cross-team with iOS engineers to build a JavaScript bridge so the Nike app could embed our web login portal inside an ASWebAuthenticationSession. One source of truth for sign-in UI, one team owning the auth flow, an identical experience across web and iOS. The clip is the live experience in the Nike app \u2014 Download the app from the App Store and tap \u201cSign In\u201d to see it yourself.',
     tags: [
       'Web Platform Leadership',
       'iOS \u2194 Web JS Bridge',
@@ -246,7 +246,6 @@ export const platformsLed: WorkItem[] = [
       'Unify auth handshake and state-management approach across applications in shared experience. \u2014 teams can support isolated modules while coordinating shared core functionality.',
       'Observability integration and usage patterns for instrumentation and monitoring. \u2014 teams can instrument and use the same tools and patterns.',
       'CI/CD templates and AWS strategy for frontend applications to deploy quickly. \u2014 teams can ship much quicker without rebuilding the same layer.',
-      'E2E testing strategy for cross-team integrations in a unified experience. \u2014 teams can test their code and ensure it works as expected.',
       'Defined processes for teams to contribute and maintain; Standards and guidelines.',
       'Migration guide for existing applications and a clear path for new applications to build against.',
     ],

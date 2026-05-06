@@ -14,10 +14,10 @@ export const profile = {
   // query string in the Nav link uses `updated` to bust browser/CDN cache.
   resume: {
     href: '/christopher-hsieh-resume.pdf',
-    updated: '2026-05',
+    updated: '2026-05b',
   },
   pitch:
-    'Full-stack engineer and platform lead with 10+ years of experience. Regularly partner with business leadership on technical initiatives and architectural direction. Bridge strategy and execution — set direction across engineering teams and remain hands-on from proof-of-concept to production.',
+    'Senior full-stack engineer and web platform lead with 10+ years of experience. Bridge strategy and execution — partner with business leadership, product, design, and engineers on strategic initiatives. Set direction across engineering teams and remain hands-on from proof-of-concept to production.',
   // Wrap any phrase in **double asterisks** to render it in the accent color.
   // Pattern mirrors the section heading where the closing kicker pops.
   summary: [
