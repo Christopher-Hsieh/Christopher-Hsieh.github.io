@@ -20,7 +20,7 @@ export default function Experience() {
         </h2>
         <p className={styles.subhead}>
           The standard resume view if you&apos;d rather scan it that way — full
-          role history at Nike, Liberty Mutual, and earlier. *I'm working on this section and the PDF download. I've done a lot of work in the last 10 years!*
+          role history at Nike, Liberty Mutual, and earlier.
         </p>
 
         <div className={styles.timeline}>
