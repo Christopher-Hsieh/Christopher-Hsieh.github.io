@@ -14,7 +14,7 @@ export const profile = {
   // query string in the Nav link uses `updated` to bust browser/CDN cache.
   resume: {
     href: '/christopher-hsieh-resume.pdf',
-    updated: '2026-05b',
+    updated: '2026-05c',
   },
   pitch:
     'Senior full-stack engineer and web platform lead with 10+ years of experience. Bridge strategy and execution — partner with business leadership, product, design, and engineers on strategic initiatives. Set direction across engineering teams and remain hands-on from proof-of-concept to production.',
