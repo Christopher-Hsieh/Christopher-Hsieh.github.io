@@ -15,7 +15,7 @@ Purdue University, West Lafayette, IN								      	          2016
 Bachelor of Science, Computer Science
 
 WORK EXPERIENCE
-Nike, Beaverton, OR (Remote)		                       Lead Software Engineer	 2022 – July 2026
+Nike, Beaverton, OR (Remote)		                       Lead Software Engineer	 2022 – 2026
 
 - Designed and implemented Nike.com's micro-frontend architecture, improving render performance and reusability across ecosystem experiences including Store Search, async chat, member signup, recommendations, and more.
 - Led modernization of Nike.com's web platform — drove migrations for React, Next.js, core dependencies, and analytics infrastructure while supporting backward compatibility and coordinating adoption across 12+ teams.
